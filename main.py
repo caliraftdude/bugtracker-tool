@@ -1,6 +1,8 @@
 #!/usr/bin/python
 import sys
-import os
+#import os
+from os import scandir, getcwd, path
+from os.path import isdir, splitext
 import ntpath
 import re
 import csv
@@ -22,6 +24,46 @@ reportdir = str()
 # Put this in an easy to find location for modification if desired
 report_header = r'''<!DOCTYPE html><html><head><style>table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  word-wrap:break-word;}th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  white-space: nowrap;}td {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;}tr:nth-child(even) {  background-color: #dddddd;}h1 {  border-bottom: 5px solid red;}</style></head><body><h1>Bug List</h1>'''
 report_footer = r'''</body></html>'''
+
+
+"""
+
+Parameters
+---------
+
+Returns
+-------
+
+Raises
+------
+
+"""
+
+'''
+try:
+    os.scandir()
+except OSError as error:
+    if error.errno in (errno.EACCES, errno.EPERM): #Permission denied
+        handle_permission_error()
+    elif error.errno == errno.ENOENT: #File not found
+        handle_FileNotFoundError_error()
+    else:
+        raise
+
+'''
+
+class NotADirectory(Exception):
+    pass
+
+class UnfixableException(Exception):
+    """
+    An issue that cannot be resolved or worked around, so the program will exit.
+    """
+    def __init__(self, message, errors):
+        super().__init__(message)
+        self.errors = errors
+
+#raise InvalidURL("The url is invalid", url)
 
 def batch():
     try:
@@ -50,7 +92,130 @@ def batch():
     except IOError as e:
         print('Operation failed: %s' % e.strerror)
 
-def process(fname:str, family:str):
+
+def main():
+    """
+    Main entry point into program, walks through the different parts of processing the files
+
+    Parameters
+    ---------
+    Nothing
+
+    Returns
+    -------
+
+    Raises
+    ------
+
+    """
+    # Get the list of files in the rawdir
+    if False == (files := getFileList(rawdir) ):
+        print("Error finding anything to process in the rawdir... exiting")
+
+    # Process the raw files and put the clean output into outdir
+    if False == processRawFiles(files):
+        print("Error trying to process raw files in raw dir to the out folder... exiting")
+
+    # Get the list of files in the outdir
+    if False == (files := getFileList(outdir) ):
+        print("Error finding anything to process in the outdir... exiting")
+
+    # Process the cleaned text files into CSV files, output into csvdir.  Also create a combined csv file
+    
+
+
+
+def getFileList(dir:str):
+    """
+    getFileList is used to collect a list of files within a given directory.  Will catch a permissions
+    issue and return an error.
+
+    Parameters
+    ---------
+    dir : str           String containing the directory to be scanned
+
+    Returns
+    -------
+    List of files on success
+    None on failure
+
+    Raises
+    ------
+    None
+    """
+    try:
+        if isdir(dir):
+           # Get the list of files in the directory
+            files = [entry.path for entry in scandir(dir) if entry.is_file()]
+            return files
+
+        raise NotADirectory()
+
+    except TypeError as e:
+        print('Improper parameter passed to getFileList: {}'.format(e.args) )
+        return None
+    except PermissionError as e:
+        print('Unable to parse directory {} due to permissions.'.format(dir) )
+        return None
+    except NotADirectory:
+        print('{} is not a directory'.format(dir) )
+        return None
+
+def processRawFiles(files:list):
+    """
+    processRawFiles Takes a list of files and for each one processes the 'dirty file', removing 
+    unwanted text and formatting the bugs as one per line.  Writes to the outdir global as its output.
+
+    Parameters
+    ---------
+    files : list        List of files to process
+    
+    Returns
+    -------
+    True on success
+    False on Failure
+
+    Raises
+    ------
+    None
+    """
+    # Process each file
+    try:
+        for file in files:
+            if file.endswith(".txt"): 
+                # only .txt files are accepted, and the name of the file should ONLY be the family name of the buglist
+                family = splitext(ntpath.basename(file))[0]
+                processRaw(file, family)
+            else:
+                print("non-text file found in directory... skipping.")
+
+        return True
+
+    except IOError as e:
+        print('Operation failed: %s' % e.strerror)
+        return False
+
+def processRaw(fname:str, family:str):
+    """
+    processRaw performs the conversion of a single file by finding lines via regex and deleting them.  It
+    also moves around some of the data and single-lines each bug so that its easy to convert into a CSV.
+    Note it does NOT catch file/permission errors for file access.  Output files are written to the
+    global outdir.
+
+    Parameters
+    ---------
+    fname : string          The filename to convert
+    family : string         The "family" of the bugs (LTM, GTM, TMOS, etc..)
+
+    Returns
+    -------
+    Nothing
+
+    Raises
+    ------
+    Nothing
+
+    """
     # Set up regex signatures to clean garbage out of file    
     bt = re.compile(r"^Bug Tracker")
     md = re.compile(r"^Modification Date:.*")
@@ -66,6 +231,16 @@ def process(fname:str, family:str):
         out = outdir+"\\"+ntpath.basename(fname)
         with open(out, 'w') as fp_out:
             fp_out.writelines(merged)
+
+
+
+
+
+
+
+
+
+
 
 def processCSV(file):
         with open(file) as fp:
@@ -311,10 +486,13 @@ def deletedumboutliertag(soup, tag:str, crap:str):
 
 
 if __name__ == "__main__":
-    homedir = os.getcwd()
+    homedir = getcwd()
     outdir = homedir + "\\out"
     rawdir = homedir + "\\raw"
     csvdir = homedir + "\\csv"
     reportdir = homedir + "\\report"
     #batch()
-    createdetailedreport()
+    #createdetailedreport()
+    main()
+
+
