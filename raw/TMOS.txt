@@ -1,0 +1,638 @@
+Bug ID 1013793: Pool members may flap on BIG-IP VE with provision.1nic set to forced_enable
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1401961: A blade with a non-functional backplane may override the dag context for the whole system
+4-Minor
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1366593: HTTPS monitors can fail when multiple bigd processes use the same netHSM
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1025513: PAM Authenticator can cause authorization failure if it fails to lock /var/log/tallylog
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1093717: BGP4 SNMP traps are not working.
+2-Critical
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1291121: F5OS tenants may intermittently pass traffic while in forced offline state
+3-Major
+Modification Date: Mar 09, 2024
+Bug Tracker
+Bug ID 1552517: When F5OS tenants are part of a GTM sync group, rebooting one device may cause monitor flapping on the other
+3-Major
+Modification Date: Mar 09, 2024
+Bug Tracker
+Bug ID 908005: Limit on log framework configuration size
+4-Minor
+Modification Date: Mar 08, 2024
+Bug Tracker
+Bug ID 1006449: The default size of the subagent object cache possibly leading to slow snmp response time and high mcpd CPU use
+2-Critical
+Modification Date: Mar 07, 2024
+Bug Tracker
+Bug ID 1429149: VELOS tenant, TMM remains not ready and fails to fully come-up on secondary slots
+1-Blocking
+Modification Date: Mar 07, 2024
+Bug Tracker
+Bug ID 1284897: TMM can crash when it exits while still processing traffic
+3-Major
+Modification Date: Mar 07, 2024
+Bug Tracker
+Bug ID 1036461: icrd_child may core with high numbers of open file descriptors.
+3-Major
+Modification Date: Mar 07, 2024
+Bug Tracker
+Bug ID 1552913: For advanced/premium deployment of BD profile, incomplete single js download may lead to blocking Protected URIs.
+4-Minor
+Modification Date: Mar 06, 2024
+Bug Tracker
+Bug ID 1128369: GTM (DNS) /Common/bigip monitor instances may show 'big3d: timed out' state
+3-Major
+Modification Date: Mar 04, 2024
+Bug Tracker
+Bug ID 1322517: FCS errors can trigger HSB reset
+3-Major
+Modification Date: Mar 05, 2024
+Bug Tracker
+Bug ID 760982: An NLRI with a default route information is not propagated on 'clear ip bgp <neighbor router-id> soft out' command in some scenarios
+3-Major
+Modification Date: Mar 05, 2024
+Bug Tracker
+Bug ID 1105021: F5OS BIG-IP tenants perform an MCPD "forceload" operation after a reboot
+3-Major
+Modification Date: Mar 01, 2024
+Bug Tracker
+Bug ID 1160805: The scp-checkfp fail to cat scp.whitelist for remote admin
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 1083405: "Error connecting to named socket" from zrd
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 876809: GUI cannot delete a cert with a name that contains with * or \ or [ ] within the cert name that ends with .crt
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 775845: Httpd fails to start after restarting the service using the iControl REST API
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 1002969: Csyncd can consume excessive CPU time
+3-Major
+Modification Date: Feb 27, 2024
+Bug Tracker
+Bug ID 969345: Temporary TMSH files not always removed after session termination
+3-Major
+Modification Date: Feb 27, 2024
+Bug Tracker
+Bug ID 997793: Error log: Failed to reset strict operations; disconnecting from mcpd
+2-Critical | K34172543
+Modification Date: Feb 27, 2024
+Bug Tracker
+Bug ID 1497989: Community list might get truncated
+4-Minor
+Modification Date: Feb 25, 2024
+Bug Tracker
+Bug ID 1549661: Logs sent to syslog-ng on VIPRION devices utilize truncated hostname instead of FQDN
+3-Major
+Modification Date: Feb 25, 2024
+Bug Tracker
+Bug ID 1353957: The message "Error getting auth token from login provider" is displayed in the GUI
+3-Major | K000137505
+Modification Date: Feb 23, 2024
+Bug Tracker
+Bug ID 912277: Users with a role other than admin are unable to run show running-config or list /security
+3-Major
+Modification Date: Feb 22, 2024
+Bug Tracker
+Bug ID 1312225: System Integrity Status: Invalid with some Engineering Hotfixes
+3-Major
+Modification Date: Feb 21, 2024
+Bug Tracker
+Bug ID 1496269: VCMP guest on version 16.1.4 or above might experience constant TMM crashes.
+1-Blocking
+Modification Date: Feb 21, 2024
+Bug Tracker
+Bug ID 1040277: Syslog-ng issue may cause logging to stop and possible reboot of a system
+3-Major
+Modification Date: Feb 16, 2024
+Bug Tracker
+Bug ID 1077789: System might become unresponsive after upgrading.
+2-Critical
+Modification Date: Feb 16, 2024
+Bug Tracker
+Bug ID 1014361: Config sync fails after provisioning APM or changing BIG-IP license
+2-Critical
+Modification Date: Feb 16, 2024
+Bug Tracker
+Bug ID 1403869: CONNFLOW_FLAG_DOUBLE_LB flows might route traffic to a stale next hop
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 977681: Incorrect error message when changing password using passwd
+4-Minor
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 871981: TMM crashes due to invalid internal packets
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 958157: Hash collisions in DNS rapid-response packet processing
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 658943: Errors when platform migration process is loading UCS using trunks on vCMP guest/F5OS Tenants
+4-Minor | K50152613
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1011081: Connection lost to the Postgres client during the BIG-IP bootup process
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1128429: Rebooting one or more blades at different times may cause traffic imbalance results High CPU
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 721591: Java crashes with core during with high load on REST API
+2-Critical
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 1144729: PVA stats may be incorrect when PVA offloaded flows have their nexthops changed to a different VLAN
+4-Minor
+Modification Date: Feb 13, 2024
+Bug Tracker
+Bug ID 1062857: Non-tmm source logs stop populating after a system time change.
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 880565: Audit Log: "cmd_data=list cm device recursive" is been generated continuously
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 747676: Remote logging needs 'localip' to set source IP properly
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 745125: Network Map page Virtual Servers with associated Address/Port List have a blank address.
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 712925: Unable to query a monitor status through iControl REST if the monitor is in a non-default partition
+2-Critical
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 796605: GUI gives error when saving UCS or other operation takes more than 5 minutes
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1022773: i15x00 series HSB CRC errors
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 976853: SNAT pool traffic-group setting may override non-floating self IP's traffic-group
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1355309: VLANs and VLAN groups are not automatically saved to bigip_base.conf on first boot or modification of a tenants VLANs or virtual wire
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1311613: UCS obtained from F5OS tenant with FPGA causes continuous TMM restarts when loaded to BIG-IP
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 915557: The pool statistics GUI page fails (General database error retrieving information.) when filtering on pool status.
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1301897: DAG transition does not complete when TMM starts in FORCED_OFFLINE mode
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 872165: LDAP remote authentication for REST API calls may fail during authorization
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 959057: Unable to create additional login tokens for the default admin user account
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 696363: Unable to create SNMP trap in the GUI
+4-Minor
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 1070393: The f5_api_com.crt certificate file may be removed by the load sys config command
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1091021: The BIG-IP system may not take a fail-safe action when the bigd daemon becomes unresponsive.
+2-Critical
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 717174: WebUI shows error: Error getting auth token from login provider
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1462337: Intermittent false PSU status (not present) through SNMP
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 863601: Panic in TMM due to internal mirroring interactions
+2-Critical
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 977953: Show running config interface CLI could not fetch the interface info and crashes the imi
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 767473: SMTP Error: Could not authenticate
+2-Critical
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1305609: Missing cluster hearbeart packets in clusterd process and the blades temporarily leave the cluster
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 798885: SNMP response times may be long when processing requests
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 867549: LCD touch panel reports "Firmware update in progress" indefinitely
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1287649: The qkview qkvcmp (vcmp_module.xml) needs to be updated for F5OS tenancy
+3-Major
+Modification Date: Feb 13, 2024
+Bug Tracker
+Bug ID 1121633: Management route lost after reboot when default route is named something other than "default"
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1410953: Keymgmtd coring or restarting in loop when we have an empty crl file inside crl_file_cache_d path.
+2-Critical
+Modification Date: Feb 13, 2024
+Bug Tracker
+Bug ID 1017909: Cannot use the GUI to view details on certificates with names containing asterisk, backslash, or square braces
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1377301: Shutdown logs while reboot not shown
+5-Cosmetic
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 874877: The bigd monitor reports misleading error messages
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1388793: GTM Listeners' search functionality returns all entries instead of the ones being searched
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1045725: TMM SIGABRT with HSB PCI errors
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 996129: The /var partition is full as cleanup of files on secondary is not executing
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 777389: In rare occurrences related to PostgreSQL monitor, the mcpd process restarts
+2-Critical
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 867253: Systemd not deleting user journals
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 842193: Scriptd coring while running f5.automated_backup script
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1063237: Stats are incorrect when the management interface is not eth0
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1304849: iSeries LCD displays "Host inaccessible or in diagnostic mode"
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 844925: Command 'tmsh save /sys config' fails to save the configuration and hangs
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 967769: During reset of high-speed interfaces, TMMs may mistakenly continue hardware watchdog checks
+2-Critical
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1283721: Vmtoolsd memory leak
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1089005: Dynamic routes might be missing in the kernel on secondary blades.
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1350717: When the client IP address changes immediately after the authentication to the Configuration Utility, HTTPD could enforce the source IP check even if 'auth-pam-validate-ip' is set to 'off'
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 883149: The fix for ID 439539 can cause mcpd to core.
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1067857: HSB completion time out causes unexpected reboot
+2-Critical
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1378141: EV server certificate - CN value incorrectly parsed
+5-Cosmetic
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 713625: Login records do not display valid dates when BIG-IP is configured to produce ISO-format dates in log files
+4-Minor
+Modification Date: Feb 11, 2024
+Bug Tracker
+Bug ID 1403797: Extending the username existence check for remote users
+3-Major
+Modification Date: Feb 07, 2024
+Bug Tracker
+Bug ID 801525: With large config, SNMP response times may be long due to processing burden of requests
+3-Major | K07047203
+Modification Date: Feb 07, 2024
+Bug Tracker
+Bug ID 1469229: Enabling ssh-rsa and ecdsa keys support to switch between slots
+3-Major
+Modification Date: Feb 04, 2024
+Bug Tracker
+Bug ID 1296925: Unable to create two boot locations using the 'ALL' F5OS tenant image at default storage size
+2-Critical
+Modification Date: Jan 29, 2024
+Bug Tracker
+Bug ID 1298133: BFD sessions using floating self IP do not work well on multi-blade chassis
+3-Major
+Modification Date: Jan 30, 2024
+Bug Tracker
+Bug ID 955897: Configuration may fail to load with named virtual-address for 0.0.0.0 in a non-zero route domain
+3-Major
+Modification Date: Jan 31, 2024
+Bug Tracker
+Bug ID 1401729: MRF per-message TCL contexts and async SessionDB operations result in immortal zombie flows
+3-Major
+Modification Date: Jan 23, 2024
+Bug Tracker
+Bug ID 1293829: The violation "Illegal cross-origin request" is raised when it is not enabled under learning-blocking settings
+3-Major
+Modification Date: Jan 22, 2024
+Bug Tracker
+Bug ID 1354309: IKEv1 over IPv6 does not work on VE
+4-Minor
+Modification Date: Jan 22, 2024
+Bug Tracker
+Bug ID 1133469: SSL Orchestrator upgrade fails due to "MCP Session terminated"
+3-Major
+Modification Date: Jan 15, 2024
+Bug ID 1045277: The /var partition may become 100% full requiring manual intervention to clear space
+3-Major
+Modification Date: Jan 15, 2024
+Bug Tracker
+Bug ID 1322497: GTM monitor recv string with special characters causes frequent iquery reconnects
+2-Critical
+Modification Date: Jan 16, 2024
+Bug Tracker
+Bug ID 1469221: SSH access issues due to line wrapping in known_hosts file
+3-Major
+Modification Date: Jan 09, 2024
+Bug Tracker
+Bug ID 1128033: Neuron client constantly logs errors when TCAM database is full
+3-Major
+Modification Date: Jan 07, 2024
+Bug Tracker
+Bug ID 1407929: Virtual-wire HW offload statistics are incorrect
+3-Major
+Modification Date: Jan 08, 2024
+Bug Tracker
+Bug ID 1399193: SIP parser not parsing response when ;; in the to: or from:
+3-Major
+Modification Date: Jan 09, 2024
+Bug Tracker
+Bug ID 1441433: If extension2 contains % (percent), some clients will convert it
+3-Major
+Modification Date: Jan 09, 2024
+Bug Tracker
+Bug ID 758929: Bcm56xxd MIIM bus access failure
+2-Critical
+Modification Date: Jan 05, 2024
+Bug Tracker
+Bug ID 642572: Configuration Utility shows 127.0.0.1 in the IP address field of the logon page and main page when using FQDN in browser
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 757787: Unable to edit LTM/AFM Policies that belong to an Application Service (iApp) using the WebUI.
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 687044: Tcp-half-open monitors might mark a node up or down in error
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1350693: Log publisher using replicated destination with unreliable destination servers may leak xfrags
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1302101: Sflow receiver flows are not established at TMM startup on sDAG platforms due to sDAG delay
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1253449: After publishing, the draft LTM policy configuration might not be updated (intermittently) into the bigip.conf
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 759258: Instances shows incorrect pools if the same members are used in other pools
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1288009: Vxlan tunnel end point routed through the tunnel will cause a tmm crash
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1189949: The TMSH sys core is not displaying help and tab complete behavior
+5-Cosmetic
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1298033: Mirrored connection on Standby is not closed until TCP profile idle-timeout expires.
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 915493: imish command hangs when ospfd is enabled
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1099621: DAG context synchronization debug instrumentation
+5-Cosmetic
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1114253: Weighted static routes do not recover from BFD link failures
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 674459: Users are not expected to change security.commoncriteria DB variable through TMSH
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 737739: Bash shell still accessible for admin even if disabled
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1319385: Syncookies may always show as enabled if a listener address is changed while syncookies is on
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1308113: Dot at the end of an URL is ignored
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1289845: Pool member marked as offline while matching both receive string and receive disable strings
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1126561: Connections over IPsec fail when hardware acceleration in fastl4 is enabled
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 793077: Failed SSH logins no longer log entries into the audit log file
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1240577: MCPD debug logging log.mcpd.userregex DB key does not reset to default when using 'reset-to-default'
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 928389: GUI becomes inaccessible after importing certificate under import type 'certificate'
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1438801: VLAN member name greater than 32 characters may cause traffic failure
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1063609: "Failed to start Jitterentropy Gatherer Daemon" encountered during boot
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 507797: Persistence records are ignored during service-down-action reselect
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1325737: Standby tenant cannot access floating traffic group when MAC masquerade is enabled
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1410245: Hardware Action:Dropped in the f5 ethernet trailer is always set
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1352445: Executing 'tmsh load sys config verify', changes Last Configuration Load Status value to 'config-load-in-progress'
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1091953: BIG-IP in non-default route domain cannot reach directly connected network
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1009337: LACP trunk down due to bcm56xxd send failure
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1283749: Systemctl start and restart fail to start the vmtoolsd service
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1305273: Licensing may fail on AWS 1nic deployments with invalid objects in the config
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 928161: Local password policy not enforced when auth source is set to a remote type.
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1305117: SSL profile "no-dtlsv1.2" option is left disabled while upgrading from v14.x or v15.x to 17.1.0
+2-Critical
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1145997: Disable creation of net route-domain in non-default partition.
+0-Unspecified
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1324093: SIP ALG does not overwrite VIA parameter: 'Received'
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1355149: The icrd_child might block signals to child processes
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1381677: GTM iRule case insensitive for verifying wideip rules
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 569968: snmpd core during startup
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 922053: inaccurate number of trunk members reported by bcm56xxd/bcmLINK
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1217077: Race condition processing network failover heartbeats with timeout of 1 second
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 966729: LDAP system authentication does not support multiple servers
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 962477: REST calls that modify GTM objects as a user other than admin may take longer than expected
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1313333: SNMP DCA or WMI monitors cannot be edited using the GUI
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 929133: TMM continually restarts with errors 'invalid index from net device' and 'device_init failed'
+2-Critical
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 809089: TMM crash after sessiondb ref_cnt overflow
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1003225: 'snmpget F5-BIGIP-LOCAL-MIB::ltmWebAccelerationProfileStat* returns zeroes
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1301865: OSPF summary might have incorrect cost when advertised by Standby unit.
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 851837: Mcpd fails to start for single NIC VE devices configured in a trust domain
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 591305: Audit log messages with "user unknown" appear on install
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1281493: Tmsh and gui errors when checking tmm memory
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1211797: MCPD CPU usage is 100% on updating long address-list through GUI
+3-Major
+Modification Date: Dec 27, 2023

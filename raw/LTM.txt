@@ -1,0 +1,706 @@
+Bug ID 1073897: TMM core due to memory corruption
+2-Critical
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1100249: SNAT with FLOW_INIT firewall rule may core TMM due to wrong type of underlying flow structure
+2-Critical
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1389401: Peer unit incorrectly shows the pool status as unknown after merging the configuration
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1297257: Pool member Forced Offline then Enabled is marked down on peer after Incremental sync
+3-Major | K000137795
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1181757: BGPD assert when sending an update
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1322413: FQDN node status changes to Unknown/Unchecked on peer device after config sync
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 927633: Failure path in external datagroup internal mapping operation failure may result in 'entry != NULL' panic
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1021109: The cmp-hash VLAN setting does not apply to trunked interfaces.
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1013793: Pool members may flap on BIG-IP VE with provision.1nic set to forced_enable
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1350885: TMM cored with SIGSEGV when using dtls by disabling the unclean shutdown flag
+3-Major
+Modification Date: Mar 08, 2024
+Bug Tracker
+Bug ID 1348841: TMM cored with SIGSEGV when using dtls by disabling the unclean shutdown flag
+4-Minor
+Modification Date: Mar 08, 2024
+Bug Tracker
+Bug ID 1469337: iRule cycle count statistics may be incorrect
+4-Minor
+Modification Date: Mar 08, 2024
+Bug Tracker
+Bug ID 1154313: TMM crash due to rrsets structure corruption
+3-Major
+Modification Date: Mar 08, 2024
+Bug Tracker
+Bug ID 1121517: Interrupts on Hyper-V are pinned on CPU 0
+3-Major
+Modification Date: Mar 08, 2024
+Bug Tracker
+Bug ID 1517469: Database monitor daemon process memory and CPU consumption increases over time
+3-Major
+Modification Date: Mar 07, 2024
+Bug Tracker
+Bug ID 1494217: Server response does not pass through after replacing fastL4 profile
+3-Major
+Modification Date: Mar 07, 2024
+Bug Tracker
+Bug ID 1365701: Core when flow with looped nexthop is torn down
+3-Major
+Modification Date: Mar 07, 2024
+Bug Tracker
+Bug ID 1455953: The iRule "string first" command might fail to find the search string
+3-Major
+Modification Date: Mar 07, 2024
+Bug Tracker
+Bug ID 1017029: SASP monitor does not identify specific cause of failed SASP Registration attempt
+3-Major
+Modification Date: Mar 06, 2024
+Bug Tracker
+Bug ID 1319265: Tmm crash observed in GCP after a migration
+3-Major
+Modification Date: Mar 06, 2024
+Bug Tracker
+Bug ID 1505753: Maximum Fragment Length extension is not visible in ServerHello even though it is present in ClientHello
+3-Major
+Modification Date: Mar 06, 2024
+Bug Tracker
+Bug ID 1025089: Pool members marked DOWN by database monitor under heavy load and/or unstable connections
+3-Major
+Modification Date: Mar 04, 2024
+Bug Tracker
+Bug ID 1306249: Hourly spike in the CPU usage causing delay in TLS connections
+3-Major
+Modification Date: Mar 05, 2024
+Bug Tracker
+Bug ID 1388621: Database monitor with no password marks pool member down
+3-Major
+Modification Date: Mar 04, 2024
+Bug Tracker
+Bug ID 1411061: API Protection rate limiting can cause cores with high traffic
+3-Major
+Modification Date: Mar 05, 2024
+Bug Tracker
+Bug ID 881065: Adding port-list to Virtual Server changes the route domain to 0
+3-Major
+Modification Date: Mar 04, 2024
+Bug Tracker
+Bug ID 758491: When using NetHSM integration, after upgrade to 14.1.0 or later (or creating keys using fipskey.nethsm), BIG-IP cannot use the keys
+2-Critical
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 530645: SSL profile cipher string longer than 768 character is silently truncated.
+3-Major | K63241636
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 891565: The Subject Alternative Name (SAN) field in Certificates and Certificate Signing Requests is limited to 4095 bytes
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 1380009: TLS 1.3 server-side resumption resulting in TMM crash due to NULL session
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 1400317: TMM crash when using internal datagroup
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 945413: Loop between keymgmtd and mcpd causes BIG-IP to be out of sync or in constant automatic config sync
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 842137: Keys cannot be created on module protected partitions when strict FIPS mode is set
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 1344925: TLS1.3 does not fall back to full handshake when Client Hello is missing the pre_shared_key
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 1065353: Disabling ciphers does not work due to the order of cipher suite.
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 1156149: Early responses on standby may cause TMM to crash
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 1440409: TMM might crash or leak memory with certain logging configurations
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 1268373: MRF flow tear down can fill up the hudq causing leaks
+2-Critical
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 1321713: BIG-IP Rewrite Profile GUI and URI Validation is inconsistent
+2-Critical | K000135858
+Modification Date: Feb 26, 2024
+Bug Tracker
+Bug ID 1462885: LTM should send ICMP port unreachable upon unsuccessful port selection.
+4-Minor
+Modification Date: Feb 27, 2024
+Bug Tracker
+Bug ID 1294109: MCP does not properly read certificates with empty subject name
+3-Major
+Modification Date: Feb 27, 2024
+Bug Tracker
+Bug ID 963393: Key handle 0 is treated as invalid for NetHSM devices
+3-Major
+Modification Date: Feb 27, 2024
+Bug Tracker
+Bug ID 1004953: HTTP does not fall back to HTTP/1.1
+4-Minor
+Modification Date: Feb 26, 2024
+Bug Tracker
+Bug ID 1391525: Timestamp Cookies and ePVA acceleration are incompatible on VELOS and rSeries platforms
+3-Major
+Modification Date: Feb 26, 2024
+Bug Tracker
+Bug ID 1369673: OCSP unable to staple certificate chain
+3-Major
+Modification Date: Feb 27, 2024
+Bug Tracker
+Bug ID 1494293: BIG-IP might fail to forward server-side traffic after a routing disruption occurs.
+3-Major
+Modification Date: Feb 27, 2024
+Bug Tracker
+Bug ID 1549397: Pool member from statically-configured node deleted along with ephemeral pool member using same IP address
+3-Major
+Modification Date: Feb 25, 2024
+Bug Tracker
+Bug ID 1056941: HTTPS monitor continues using cached TLS version after receiving fatal alert.
+3-Major
+Modification Date: Feb 20, 2024
+Bug Tracker
+Bug ID 1347825: Traffic group becomes active on more than one BIG-IP after a long uptime and long HA disconnection time
+3-Major
+Modification Date: Feb 21, 2024
+Bug Tracker
+Bug ID 968949: Keepalives aren't sent in FIN_WAIT_2 when using a TCP profile
+3-Major
+Modification Date: Feb 21, 2024
+Bug Tracker
+Bug ID 1096165: Tmm cored for accessing the pool after the gtm_add command is run
+3-Major
+Modification Date: Feb 20, 2024
+Bug Tracker
+Bug ID 1531729: Request-log profile breaks GRPC
+3-Major
+Modification Date: Feb 19, 2024
+Bug Tracker
+Bug ID 1389225: For certain iRules, TCP::close does not close the TCP connection
+3-Major
+Modification Date: Feb 20, 2024
+Bug Tracker
+Bug ID 1359817: The setting of DB variable tm.macmasqaddr_per_vlan does not function correctly
+3-Major
+Modification Date: Feb 16, 2024
+Bug Tracker
+Bug ID 1312041: Connection RST with reason "STREAM max match size exceeded" after upgrading to v16.1.x
+3-Major
+Modification Date: Feb 16, 2024
+Bug Tracker
+Bug ID 1305329: HTTP iRule event HTTP_REQUEST_DATA is triggered even though there is no data collected via HTTP::collect command.
+3-Major
+Modification Date: Feb 16, 2024
+Bug Tracker
+Bug ID 826297: Address list as source/destination for virtual server cannot be changed from tmsh
+4-Minor
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 1013209: BIG-IP components relying on ca-bundle.crt may stop working after upgrade
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1301317: Update Check request using a proxy will fail if the proxy inserts a custom header
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 945189: HTTPS monitor fails due to missing ECDHE-RSA-AES256-CBC-SHA
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1463713: Virtual Server using a disabled VIP address is given a new enabled VIP address but still resets connections
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1353809: HTTP/2 erroneously expects the body length to match the Content-Length in response to HEAD request
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1270497: MRF SIP/ALG Core dump observed while accessing trans_data in sipmsg_register_ingress_register_request_session_reply_common method
+2-Critical
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 985749: TCP exponential backoff algorithm does not comply with RFC 6298
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1350921: SOCKS profile may not immediately expire connections
+4-Minor
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 1329509: TCL error 'ERR_VAL (line 1) invoked from within "HTTP::path"'.
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 926085: In WebUI node or port monitor test is not possible, but it works in TMSH
+5-Cosmetic
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 753712: Incorrect warning: Traffic Matching Criteria's inline source address has been set to any4 from any6 to match inline destination address' address family.
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1314597: Connection on standby may stay until idle timeout when receiving ICMP error
+4-Minor
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 783729: Not all tcpdump process are stopped after timeout
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 912293: Persistence might not work properly on virtual servers that utilize address lists
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1318041: Some OIDs using type as counter instead of expected type as gauge
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 918693: Wide IP alias validation error during sync or config load
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1330213: SIGABRT is sent when single quotes are not closed/balanced in TMSH commands
+2-Critical
+Modification Date: Feb 13, 2024
+Bug Tracker
+Bug ID 1115601: VE on VMware with VMXNET3 fails to work with Large Receive Offload (LRO)
+2-Critical
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1148113: The websocket_ep_send_down_ws_message does an extra websockets_frame release
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 802721: Virtual Server iRule does not match an External Data Group key that's 128 characters long
+4-Minor
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 928445: HTTPS monitor is down when server_ssl profile cipher string is configured to TLSv1_2
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 967353: HTTP proxy should trim spaces between a header field-name and colon in its downstream responses.
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 783077: IPv6 host defined via static route unreachable after BIG-IP reboot
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 939989: TMM may be killed by sod when shutting down
+2-Critical
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 751451: When upgrading to v14.0.0 or later, the 'no-tlsv1.3' option is missing from HTTPS monitors automatically created server SSL profiles
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1026781: Standard HTTP monitor send strings have double CRLF appended
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 901569: Loopback traffic might get dropped when VLAN filter is enabled for a virtual server.
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1350717: When the client IP address changes immediately after the authentication to the Configuration Utility, HTTPD could enforce the source IP check even if 'auth-pam-validate-ip' is set to 'off'
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1366013: Unwanted logs in "var/log/maillog"
+5-Cosmetic
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 881937: TMM and the kernel choose different VLANs as source IPs when using IPv6.
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1322117: FastL4 TCP PVA accelerated connection might not be cleared until idle timeout.
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 716119: No error or ephemerals upon adding FQDN pool member with zero port to pool with wildcard monitor
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 977681: Incorrect error message when changing password using passwd
+4-Minor
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 1326797: The Pool State of an offline pool with one or more user-disabled pool members depends on which pool member was marked down last by its monitor (non-deterministic behaviour)
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1103117: iAppLX extension using express with httpserver script leaves lingering client-side flow on HTTP requests.
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1382181: BIG-IP resets only server-side on idle timeout when used FastL4 profile with loose-* settings enabled
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1312105: The tmm/ehash_stat inuse field for listener name hash is incremented but not decremented
+4-Minor
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 1011889: The BIG-IP system does not handle DHCPv6 fragmented traffic properly
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1144729: PVA stats may be incorrect when PVA offloaded flows have their nexthops changed to a different VLAN
+4-Minor
+Modification Date: Feb 13, 2024
+Bug Tracker
+Bug ID 1166481: The vip-targeting-vip fastL4 may core
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1354289: NAT64 virtual IP does not translate ICMPv6 to v4 after failover in mirrored connections
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1087981: Tmm crash on "new serverside" assert
+2-Critical
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1019261: In-TMM HTTPS monitor with SSL Profile set to None does not use serverssl profile.
+3-Major
+Modification Date: Feb 14, 2024
+Bug ID 716119: No error or ephemerals upon adding FQDN pool member with zero port to pool with wildcard monitor
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1382181: BIG-IP resets only server-side on idle timeout when used FastL4 profile with loose-* settings enabled
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1312105: The tmm/ehash_stat inuse field for listener name hash is incremented but not decremented
+4-Minor
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 629640: TMM may stall and not service queued connections on pool state transition
+3-Major | K33695305
+Modification Date: Feb 11, 2024
+Bug Tracker
+Bug ID 1409493: PVA dedicated mode connections are not re-accelerated after a failover.
+3-Major
+Modification Date: Feb 05, 2024
+Bug Tracker
+Bug ID 1231001: PEM flow-term-on-sess-delete can cause cores
+3-Major
+Modification Date: Feb 06, 2024
+Bug Tracker
+Bug ID 1462421: PVA connections are not re-accelerated after a failover.
+3-Major
+Modification Date: Feb 04, 2024
+Bug Tracker
+Bug ID 722657: Mcpd and bigd monitor states are getting out-of-sync intermittently
+3-Major
+Modification Date: Feb 04, 2024
+Bug Tracker
+Bug ID 1211617: High CPU utilisation observed during startup when forced BIG-IP system set offline
+4-Minor
+Modification Date: Feb 01, 2024
+Bug Tracker
+Bug ID 1249929: Diameter MRF sends CER to pool-member even after peer sent DPR and force-offline the pool member
+4-Minor
+Modification Date: Jan 30, 2024
+Bug Tracker
+Bug ID 1462409: PVA dedicated mode in F5OS tenants needs eviction disabled
+3-Major
+Modification Date: Jan 22, 2024
+Bug Tracker
+Bug ID 756830: BIG-IP may fail source translation for connections when connection mirroring is enabled on a virtual server that also has source port set to 'preserve strict'
+2-Critical
+Modification Date: Jan 23, 2024
+Bug Tracker
+Bug ID 1470989: AWS /appdata size insufficient for module provisioning (m5.xlarge)
+4-Minor
+Modification Date: Jan 18, 2024
+Bug Tracker
+Bug ID 673923: mgmt route destinations may use incorrect MTU
+4-Minor
+Modification Date: Jan 15, 2024
+Bug Tracker
+Bug ID 1012493: Systemauth.primaryadminuser set to anything but 'admin' causes internal error for mcp-state check
+2-Critical
+Modification Date: Jan 15, 2024
+Bug Tracker
+Bug ID 1016973: Invalid send strings for in-TMM HTTP monitors cause monitor probes to not be sent, and nothing is logged to indicate why
+3-Major
+Modification Date: Jan 15, 2024
+Bug Tracker
+Bug ID 783073: Cookie Persistence profile is not showing up in the GUI
+4-Minor
+Modification Date: Jan 15, 2024
+Bug Tracker
+Bug ID 1391081: TMM crash when running HTTP/3 and persist record
+3-Major
+Modification Date: Jan 11, 2024
+Bug Tracker
+Bug ID 1016045: OOPS logging may appear while active ftp if the port command forces a cmp_redirection and a quit follows.
+4-Minor
+Modification Date: Jan 12, 2024
+Bug Tracker
+Bug ID 1100761: TMM crashes when DHCP pool member is not reachable.
+3-Major
+Modification Date: Jan 09, 2024
+Bug Tracker
+Bug ID 1354977: TMM validating resolver performance dramatically decreases
+2-Critical
+Modification Date: Jan 08, 2024
+Bug Tracker
+Bug ID 1400001: PVA dedicated mode does not accelerate all connections
+3-Major
+Modification Date: Jan 09, 2024
+Bug Tracker
+Bug ID 1470021: Increased TMM memory usage on standby unit after it loses a connection
+3-Major
+Modification Date: Jan 02, 2024
+Bug Tracker
+Bug ID 1330249: Fastl4 can queue up too many packets
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 835505: Tmsh crash potentially related to NGFIPS SDK
+2-Critical
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1167609: The messages msg->ref > 0 are seen in TMM logs with websockets/ASM plugin
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1205045: WMI monitor does not put pool members into an offline/unchecked state when BIG-IP receives HTTP responses other than 200
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 742764: If two racoon daemon are spawned on startup, one fails and cores.
+2-Critical
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1091969: iRule 'virtual' command does not work for connections over virtual-wire.
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 895669: VCMP host does not validate when an unsupported TurboFlex profile is configured
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 759258: Instances shows incorrect pools if the same members are used in other pools
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1015093: The "iq" column is missing from the ndal_tx_stats table
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1209589: BFD multihop does not work with ECMP routes
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1093061: MCPD restart on secondary blade during hot-swap of another blade
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1124865: Removal of LAG member from an active LACP trunk on r2k and r4k systems requires tmm restart
+2-Critical
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 804089: iRules LX Streaming Extension dies with Uncaught, unspecified error event
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 599135: B2250 blades may suffer from high TMM CPU utilisation with tcpdump
+2-Critical
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1106489: GRO/LRO is disabled in environments using the TMM raw socket "sock" driver.
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1332473: Configuring SNAT Origin IPv6 address through GUI in non RD0 incorectly expands subnet mask to '/32' causes error during configuration load
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1137269: MCPD fails to reply if a request is proxied to another daemon and the connection to that daemon closes
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1348061: [Dual Stack MGMT] - Upgrade of BIG-IP in HA with Dual stacked mgmt IP causes deletion of peers failover IPv4 unicast address
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1229325: Unable to configure IP OSPF retransmit-interval as intended
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1287045: In-TMM monitor may mark pool member offline despite its response matches Receive Disable String
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1309637: Mac masquerade not working after VLAN movement on host interfaces
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1366765: Monitor SEND string parsing "\\r\\n"
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1284157: The fastL4 IP TOS mimic feature does not demote flows from PVA
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1347861: Monitor status update logs unclear for FQDN template pool member
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1134257: TMM cores when pingaccess profile is modified multiple times and configuration is loaded
+2-Critical
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1305153: TMM crashes with when a virtual server is configured with httprouter along with TCP's verified-accept being enabled
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1341093: MCPD returns configuration error when attaching a client SSL profile containing TLS 1.3 to a virtual server with HTTP/2 profile
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1194733: TMM core
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 490139: Loading iRules from file deletes the last few comment lines
+5-Cosmetic
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1121013: A blade enters a failed state and traffic across the chassis is disrupted.
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1106673: Tmm crash with FastL4 virtual servers and CMP disabled
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1318377: TMM memory leak when using http+fastl4 profile with 'rtt-from-client/rtt-from-server' enabled.
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1110165: Fasthttp connections infrequently fail
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1314769: The error "No Access" is displayed when trying to remove Bundle Manager object from list
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 632553: DHCP: OFFER packets from server are intermittently dropped
+2-Critical | K14947100
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 779137: Using a source address list for a virtual server does not preserve the destination address prefix
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1022997: TCP segments with an incorrect checksum are transmitted when the sock driver is used in AWS deployments (e.g., 1NIC)
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1143833: ILX (iRules LX) may corrupt tmstat (profile statistics) memory
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1325649: POST request with "Expect: 100-Continue" and HTTP::collect + HTTP::release is not being passed to pool member
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1400161: Enhance HTTP2 receive-window to maximum
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1138101: Tunnel connections might not come up when using pool routes
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 905477: The sdmd daemon cores during config sync when multiple devices configured for iRules LX
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 958601: In the GUI, searching for virtual server addresses does not match address lists
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 424228: Parking iRules in CLIENT_DATA on virtual without assigned pool may not return
+3-Major | K14563
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1455781: Virtual to virtual SNAT might fail to work after an upgrade.
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 867985: LTM policy with a 'shutdown' action incorrectly allows iRule execution
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1091785: DBDaemon restarts unexpectedly and/or fails to restart under heavy load
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1320773: Virtual server name caused buffer overflow
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1120985: In Bot Defense, configuration error when changing Mobile Mitigation Action from Continue to Block for the protected end point
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1107453: Performance drop observed in some Ramcache::HTTP tests on BIG-IP i10800 platform
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 904537: The csyncd process may keep trying to sync the GeoIP database to a secondary blade
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1006857: Adding a source address list to a virtual server in a partition with a non-default route domain fails.
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1281493: Tmsh and gui errors when checking tmm memory
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1366217: The TLS 1.3 SSL handshake fails with "Decryption error" when using dynamic CRL validator
+3-Major
+Modification Date: Dec 27, 2023

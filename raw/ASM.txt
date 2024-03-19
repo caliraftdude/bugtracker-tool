@@ -1,0 +1,183 @@
+Bug ID 1389401: Peer unit incorrectly shows the pool status as unknown after merging the configuration
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1060393: Extended high CPU usage caused by JavaScript Obfuscator.
+3-Major | K24102225
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1429813: ASM introduce huge delay from time to time
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1168157: OpenAPI: Special ASCII characters in "schema" block should not be converted to UTF8
+3-Major
+Modification Date: Mar 07, 2024
+Bug Tracker
+Bug ID 1382141: Query string gets stripped when bot defense redirects request via Location header, with versions that have the fix for ID890169
+3-Major
+Modification Date: Mar 05, 2024
+Bug Tracker
+Bug ID 1388341: tmm crash upon context reference that was already released (HUDEVT_SHUTDOWN)
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 1347949: High CPU for bd process under specific conditions
+3-Major
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 890037: Rare BD process core
+2-Critical
+Modification Date: Feb 29, 2024
+Bug Tracker
+Bug ID 1553533: Negative frame number might result in bd crash.
+3-Major
+Modification Date: Feb 28, 2024
+Bug Tracker
+Bug ID 1490765: Request body can be unordered by bot-defense
+2-Critical
+Modification Date: Feb 27, 2024
+Bug Tracker
+Bug ID 1239297: TMM URL web scraping limit not synced to secondary slot 2 in VIPRION chassis
+3-Major
+Modification Date: Feb 26, 2024
+Bug Tracker
+Bug ID 1360965: Bot defense memory leak
+3-Major
+Modification Date: Feb 22, 2024
+Bug Tracker
+Bug ID 1059849: ASM hostname headers have the route domain incorrectly appended
+3-Major
+Modification Date: Feb 20, 2024
+Bug Tracker
+Bug ID 1052781: JavaScript obfuscation is very slow.
+3-Major
+Modification Date: Feb 17, 2024
+Bug Tracker
+Bug ID 1400105: Replace policy function fails even though local and imported (JSON format) policies have the same encoding/applicationLanguage
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 977681: Incorrect error message when changing password using passwd
+4-Minor
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 902445: ASM Policy Event Logging stops working after 'No space in shmem' error disconnection mitigation
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1490801: Violation details shows N/A for websockets
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1135425: Created ASM policy does not appear in bigip.conf on the standby
+4-Minor
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 1210321: Parameters are not created for properties defined in multipart request body when URL include path parameter
+3-Major
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 1348945: BD core is seen while setting "likely_false_positive_mode"
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1492693: Importing a New Policy virtual server Overwriting an existing Policy are not consistent through Rest
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1217549: Missed ASM Sync on startup
+2-Critical
+Modification Date: Feb 13, 2024
+Bug Tracker
+Bug ID 1378405: The sub-violation of HTTP compliance "Unescaped space in URL" is wrongly listed in TMUI
+4-Minor
+Modification Date: Feb 08, 2024
+Bug Tracker
+Bug ID 1377205: Content-based routing: Matched XML data being truncated to 1024 bytes
+3-Major
+Modification Date: Feb 07, 2024
+Bug Tracker
+Bug ID 1324777: The get_file_from_link in F5::Utils::File should support HTTPS links also when proxy.host DB key is configured
+3-Major
+Modification Date: Feb 06, 2024
+Bug Tracker
+Bug ID 1350485: When the parameter value contains at (@), domain name is not extarcting properly
+3-Major
+Modification Date: Feb 07, 2024
+Bug Tracker
+Bug ID 1393761: ArcSight sends a series of '000000000' values in the remote log in case of Attack Signature Detected.
+4-Minor
+Modification Date: Feb 02, 2024
+Bug Tracker
+Bug ID 1352801: Unnessecary DNS lookups invoked by the bot defense process
+3-Major
+Modification Date: Jan 30, 2024
+Bug Tracker
+Bug ID 1301081: Changing partitions top dropdown does not work on chrome/edge on ASM list pages
+3-Major
+Modification Date: Jan 30, 2024
+Bug Tracker
+Bug ID 1186661: The security policy JSON profile created from OpenAPI file should have value "any" for it's defense attributes
+3-Major
+Modification Date: Jan 25, 2024
+Bug Tracker
+Bug ID 1245221: ASM Policy IP Intelligence configuration does not seem to synchronize when the device group is set to automatic sync
+3-Major
+Modification Date: Jan 15, 2024
+Bug Tracker
+Bug ID 1317873: illegal parameter data type' is detected on 'auto detect
+3-Major
+Modification Date: Jan 15, 2024
+Bug Tracker
+Bug ID 1366229: Leaked Credentials Action unexpectedly modified after XML-format policy export and re-import
+4-Minor
+Modification Date: Jan 08, 2024
+Bug Tracker
+Bug ID 1329557: The Attack Types and Violations reported in the incident do not match the incident subtype
+3-Major
+Modification Date: Jan 05, 2024
+Bug Tracker
+Bug ID 1271469: Failed to install ASU file scheduled for install
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1120529: Illegal internal request in multipart batch request
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 887265: BIG-IP systems may fail to come online after upgrade with ASM and VLAN-failsafe configuration
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1295057: Installation of Attack Signatures file reported as fail after 1 hour
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1065681: Sensitive data is not masked under certain conditions.
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1281389: Bot Defense can crash when using SMTP security profile
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1235337: The 'JSON profile' with 'JSON schema validation' was not created for the body parameter in the OpenAPI URL
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1210289: CSS spinner covering ASM CAPTCHA not allowing the captcha to be solved
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1068989: ASU fails if the sig_name is the same as a user-defined name.
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1141541: [TMUI] Security > Overview : Summary is not available with ASM license
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1332769: Wildcard order incorrect for JSON Policy Import
+3-Major
+Modification Date: Dec 27, 2023

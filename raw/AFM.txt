@@ -1,0 +1,123 @@
+Bug ID 1282029: Logging suspicious vector feature is not supported for tcp-flags-uncommon vector on upgrade to BIG-IP 17.1.0
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 1389401: Peer unit incorrectly shows the pool status as unknown after merging the configuration
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 915221: DoS unconditionally logs MCP messages to /var/tmp/mcpd.out
+3-Major
+Modification Date: Mar 11, 2024
+Bug Tracker
+Bug ID 932553: An HTTP request is not served when a remote logging server is down
+4-Minor
+Modification Date: Mar 07, 2024
+Bug Tracker
+Bug ID 1132449: Incomplete or missing IPv6 IPI database results to connection reset and/or high TMM CPU usage
+1-Blocking
+Modification Date: Feb 28, 2024
+Bug Tracker
+Bug ID 1366269: NAT connections might not work properly when subscriber-id is confiured.
+4-Minor
+Modification Date: Feb 28, 2024
+Bug Tracker
+Bug ID 1391525: Timestamp Cookies and ePVA acceleration are incompatible on VELOS and rSeries platforms
+3-Major
+Modification Date: Feb 26, 2024
+Bug Tracker
+Bug ID 977681: Incorrect error message when changing password using passwd
+4-Minor
+Modification Date: Feb 12, 2024
+Bug Tracker
+Bug ID 1011081: Connection lost to the Postgres client during the BIG-IP bootup process
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 984965: While intentionally exiting, sshplugin may invoke functions out of sequence and crash
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1404253: [NAT-LOGS] PBA Lease Duration suffers from a 32-bit rollover after 50 days
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1367017: AFM allows to delete the virtual server which is applied in a FW rule
+4-Minor
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1400337: GTP compliances are deprecated after BIG-IP version upgrade
+3-Major
+Modification Date: Feb 07, 2024
+Bug Tracker
+Bug ID 1048425: Packet tester crashes TMM when vlan external source-checking is enabled
+2-Critical
+Modification Date: Feb 06, 2024
+Bug Tracker
+Bug ID 756830: BIG-IP may fail source translation for connections when connection mirroring is enabled on a virtual server that also has source port set to 'preserve strict'
+2-Critical
+Modification Date: Jan 23, 2024
+Bug Tracker
+Bug ID 928653: [tmsh]:list security nat policy rules showing automap though the value set is None
+4-Minor
+Modification Date: Jan 18, 2024
+Bug Tracker
+Bug ID 1409585: When interface mode ipsec-policy on custom partition and custom RD is created through CLI, tunnel-local-address and tunnel-remote-address are added to RD0 (not the correct RD)
+4-Minor
+Modification Date: Jan 18, 2024
+Bug Tracker
+Bug ID 1461597: IPS IM upgrade is taking more time
+3-Major
+Modification Date: Jan 08, 2024
+Bug Tracker
+Bug ID 1384509: The ePVA syncookie protection stays activated in hardware
+3-Major
+Modification Date: Jan 04, 2024
+Bug Tracker
+Bug ID 1380201: Pccd may crash when a virtual server is renamed
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1281829: Lsn_pick_request_new_out and lsn_pick_response_new_out cmp stats incremented twice for one request
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 609878: Bad ACK Flood is not detected by AFM when loose-init is enabled on the virtual server
+2-Critical
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1167969: In DoS Profile level, the Flood attack Vectors with TCP and UDP, Hardware offloading is not working as expected
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 926425: Hardware SYN Cookies may not deactivate after the SYN attack ends and valid TCP traffic starts
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1317773: CGNAT / AFM NAT: "Clients Using Max Port Blocks" counter might be inaccurate
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1388985: The daemon dwbld uses 100% CPU when max port value configured in TMC port list
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1240381: When BA detected and mitigated from hardware N/A is displayed
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1325681: VLAN tscookies with fastl4 timestamp preserve and PVA acceleration cause connection problems.
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 882729: Applied Blocking Masks discrepancy between local/remote event log
+4-Minor
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1324197: The action value in a profile which is in different partition cannot be changed from accept/reject/drop to Don't Inspect in UI
+3-Major
+Modification Date: Dec 27, 2023
+Bug Tracker
+Bug ID 1209409: Address lists with thousands of addresses can cause MCPD to become unresponsive and use 100% CPU
+3-Major
+Modification Date: Dec 27, 2023
