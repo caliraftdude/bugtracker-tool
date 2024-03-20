@@ -39,18 +39,10 @@ Raises
 
 """
 
-'''
-try:
-    os.scandir()
-except OSError as error:
-    if error.errno in (errno.EACCES, errno.EPERM): #Permission denied
-        handle_permission_error()
-    elif error.errno == errno.ENOENT: #File not found
-        handle_FileNotFoundError_error()
-    else:
-        raise
 
-'''
+
+class GeneralFailure(Exception):
+    pass
 
 class NotADirectory(Exception):
     pass
@@ -103,26 +95,37 @@ def main():
 
     Returns
     -------
+    Nothing on success
+    -1 on error
 
     Raises
     ------
+    None
 
     """
-    # Get the list of files in the rawdir
-    if False == (files := getFileList(rawdir) ):
-        print("Error finding anything to process in the rawdir... exiting")
+    try:
+        # Get the list of files in the rawdir
+        if False == (files := getFileList(rawdir) ):
+            raise GeneralFailure("Error finding anything to process in the rawdir... exiting")
 
-    # Process the raw files and put the clean output into outdir
-    if False == processRawFiles(files):
-        print("Error trying to process raw files in raw dir to the out folder... exiting")
+        # Process the raw files and put the clean output into outdir
+        if False == processRawFiles(files):
+            raise GeneralFailure("Error trying to process raw files in raw dir to the out folder... exiting")
 
-    # Get the list of files in the outdir
-    if False == (files := getFileList(outdir) ):
-        print("Error finding anything to process in the outdir... exiting")
+        # Get the list of files in the outdir
+        if False == (files := getFileList(outdir) ):
+            raise GeneralFailure("Error finding anything to process in the outdir... exiting")
 
-    # Process the cleaned text files into CSV files, output into csvdir.  Also create a combined csv file
-    
+        # Process the cleaned text files into CSV files, output into csvdir.  Also create a combined csv file
+        if False == (processCSVFiles(files) ):
+            raise GeneralFailure("Error trying to process the txt files into csv files or combining them into an ALL.csv")
 
+        # Create the html report
+        
+
+    except GeneralFailure as e:
+        print(e.args)
+        exit(-1)
 
 
 def getFileList(dir:str):
@@ -153,13 +156,13 @@ def getFileList(dir:str):
 
     except TypeError as e:
         print('Improper parameter passed to getFileList: {}'.format(e.args) )
-        return None
+        return False
     except PermissionError as e:
         print('Unable to parse directory {} due to permissions.'.format(dir) )
-        return None
+        return False
     except NotADirectory:
         print('{} is not a directory'.format(dir) )
-        return None
+        return False
 
 def processRawFiles(files:list):
     """
@@ -194,6 +197,14 @@ def processRawFiles(files:list):
     except IOError as e:
         print('Operation failed: %s' % e.strerror)
         return False
+    except OSError as e:
+        if e.errno in (errno.EACCES, errno.EPERM):
+            print('Permission denied accessing: {}'.format(file))
+        elif e.errno == errno.ENOENT:
+            print('File not found accessing: {}'.format(file))
+        return False
+
+
 
 def processRaw(fname:str, family:str):
     """
@@ -233,28 +244,79 @@ def processRaw(fname:str, family:str):
             fp_out.writelines(merged)
 
 
+def processCSVFiles(files:list):
+    """
+    processCSVFiles Takes a list of files in the outdir directory, and then processes each one into a
+    CSV file.  It then combines all the csvfiles into a single 'all' csv file.
 
+    Parameters
+    ---------
+    files : list        List of files to process
+    
+    Returns
+    -------
+    True on success
+    False on Failure
 
+    Raises
+    ------
+    None
+    """
+    try:
+        # Convert each file into a csv
+        for file in files:
+            processCSV(file)
 
+        # Create a single csv file, and strip headers - promote the return value to the caller
+        return combineCSVFiles()
 
-
-
-
+    except IOError as e:
+        print('Operation failed: %s' % e.strerror)
+        return False
+    except OSError as e:
+        if e.errno in (errno.EACCES, errno.EPERM):
+            print('Permission denied accessing: {}'.format(file))
+        elif e.errno == errno.ENOENT:
+            print('File not found accessing: {}'.format(file))
+        return False
 
 
 def processCSV(file):
-        with open(file) as fp:
-            csvfname = os.path.splitext(os.path.split(file)[1])[0]+'.csv'
-            with open(csvdir+"\\"+csvfname, 'w', newline='') as csvfile:
-                csvfp = csv.writer(csvfile, delimiter=',',quotechar='"', quoting=csv.QUOTE_ALL)
-                lines = fp.readlines()
-                writecsvheader(csvfp)
+    """
+    processCSVF Takes a single text file (formated into single lines) and outputs a csv file into csvdir.
+    Exceptions are NOT caught and processed here but rather roll up to the function that processes the 
+    entire directory.
 
-                for line in lines:
-                    words = line.split()
-                    writecsvline(csvfp, words)
+    Parameters
+    ---------
+    files : list        List of files to process
+    
+    Returns
+    -------
+    None
 
-def writecsvline(csvfp, words):
+    Raises
+    ------
+    None
+    """
+    # Open the destination file
+    with open(file) as fp:
+        csvfname = os.path.splitext(os.path.split(file)[1])[0]+'.csv'
+
+        # Open the source file
+        with open(csvdir+"\\"+csvfname, 'w', newline='') as csvfile:
+            # Setup the csv writer, read the lines into 'lines' and then write the header for the CSV file
+            csvfp = csv.writer(csvfile, delimiter=',',quotechar='"', quoting=csv.QUOTE_ALL)
+            lines = fp.readlines()
+            _writecsvheader(csvfp)
+
+            # Walk each line and write it out
+            for line in lines:
+                words = line.split()
+                _writecsvline(csvfp, words)
+
+def _writecsvline(csvfp, words):
+    """ Helper fuunction to write a line in the csv file and deal with the occasional burp of a K article """
     if words[2] == '|':
         # Handle a K article number in the line
         row = [words[0], words[1], words[6].rstrip(':'), words[3], " ".join(words[7::])]
@@ -264,26 +326,61 @@ def writecsvline(csvfp, words):
 
     csvfp.writerow(row)
 
-def writecsvheader(csvfp):
+def _writecsvheader(csvfp):
+    """ Helper function to write out a header - this should be refactored so its not static.. but for now its fine """
     csvfp.writerow(['Family', 'Bug severity', 'Bug ID', 'K Article', 'Description'])
 
-def combinecsvfiles():
-    files = [entry.path for entry in os.scandir(csvdir) if entry.is_file()]
+def combineCSVFiles():
+    """
+    combineCSVFiles takes the csvdir, and writes the first file to a 'combined file'.  It then takes the remaining
+    csv file, strips off the header (as we only need one) and the appends each of them.
+    Parameters
+    ---------
+    None
+
+    Returns
+    -------
+    True on success
+    False on Failure
+
+    Raises
+    ------
+    None
+    """
+    # Get the list of files in the csvdir
+    if False == (files := getFileList(csvdir) ):
+        return False
+
+    # Output filename       
     filename = csvdir + "\\ALL.csv"
 
     with open(filename, 'w') as dest:
+        # enumerate the list of files and keep an index
         for index, file in enumerate(files):
             with open(file) as source:
                 if index == 0:
                     # For the first file, copy the entire thing in
                     dest.write(source.read())
                 else:
-                    # For the remaining files, strip off the header and then copy the rest in.
+                    # For the remaining files, skip the header (first line) and then copy the rest in.
                     for ln, line in enumerate(source):
                         if ln == 0:
                             continue
                         else:
                             dest.write(line)
+
+    return True
+
+
+
+
+
+
+
+
+
+
+
 
 def createdetailedreport():
     try:
