@@ -1,8 +1,7 @@
 #!/usr/bin/python
 import sys
-#import os
 from os import scandir, getcwd, path
-from os.path import isdir, splitext
+from os.path import isdir, splitext, split
 import ntpath
 import re
 import csv
@@ -12,7 +11,7 @@ try:
     from lxml import html
     from bs4 import BeautifulSoup, Tag
 except ImportError:
-    raise ImportError('Missing BS4, try:  pip install beautifulsoup4 and rerunning')
+    raise ImportError('Missing BS4, try:  pip install beautifulsoup4 and re-run')
 
 # These are better handled at the global level
 homedir = str()
@@ -24,22 +23,6 @@ reportdir = str()
 # Put this in an easy to find location for modification if desired
 report_header = r'''<!DOCTYPE html><html><head><style>table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  word-wrap:break-word;}th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  white-space: nowrap;}td {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;}tr:nth-child(even) {  background-color: #dddddd;}h1 {  border-bottom: 5px solid red;}</style></head><body><h1>Bug List</h1>'''
 report_footer = r'''</body></html>'''
-
-
-"""
-
-Parameters
----------
-
-Returns
--------
-
-Raises
-------
-
-"""
-
-
 
 class GeneralFailure(Exception):
     pass
@@ -56,33 +39,6 @@ class UnfixableException(Exception):
         self.errors = errors
 
 #raise InvalidURL("The url is invalid", url)
-
-def batch():
-    try:
-        # Get the list of files in the directory
-        files = [entry.path for entry in os.scandir(rawdir) if entry.is_file()]
-
-        # Process each file
-        for file in files:
-            if file.endswith(".txt"): 
-                # only .txt files are accepted, and the name of the file should ONLY be the family name of the buglist
-                family = os.path.splitext(ntpath.basename(file))[0]
-                process(file, family)
-            else:
-                print("non-text file found in directory... skipping.")
-
-        # Get the processed list of files
-        files = [entry.path for entry in os.scandir(outdir) if entry.is_file()]
-        
-        # Convert each file into a csv
-        for file in files:
-            processCSV(file)
-
-        # Create a single csv file, and strip headers
-        combinecsvfiles()
-
-    except IOError as e:
-        print('Operation failed: %s' % e.strerror)
 
 
 def main():
@@ -121,7 +77,7 @@ def main():
             raise GeneralFailure("Error trying to process the txt files into csv files or combining them into an ALL.csv")
 
         # Create the html report
-        
+
 
     except GeneralFailure as e:
         print(e.args)
@@ -301,7 +257,7 @@ def processCSV(file):
     """
     # Open the destination file
     with open(file) as fp:
-        csvfname = os.path.splitext(os.path.split(file)[1])[0]+'.csv'
+        csvfname = splitext(split(file)[1])[0]+'.csv'
 
         # Open the source file
         with open(csvdir+"\\"+csvfname, 'w', newline='') as csvfile:
@@ -372,21 +328,23 @@ def combineCSVFiles():
     return True
 
 
-
-
-
-
-
-
-
-
-
-
 def createdetailedreport():
+    """
+
+    Parameters
+    ---------
+
+    Returns
+    -------
+
+    Raises
+    ------
+
+    """
     try:
         # Get the list of files in the directory
         buglistfile = csvdir+"\\ALL.csv"
-        report_name = homedir+"\\BugScrub.html"
+        report_name = reportdir+"\\BugScrub.html"
         report = str()
 
         # Build Report
@@ -413,7 +371,7 @@ def createdetailedreport():
                 # Build table tow
                 report += buildrow(row)
 
-                url = buildurl(row[2])
+                url = _buildurl(row[2])
                 page_list.append( queryandcleanurl(url) )
 
             # Close the table, and start next section
@@ -440,6 +398,18 @@ def createdetailedreport():
 
 
 def buildrow(data:list, isheader:bool=False):
+    """
+
+    Parameters
+    ---------
+
+    Returns
+    -------
+
+    Raises
+    ------
+
+    """
     buffer = "<tr>"
     for item in data:
         if isheader:
@@ -450,7 +420,8 @@ def buildrow(data:list, isheader:bool=False):
     return buffer
 
 
-def buildurl(bugid):
+def _buildurl(bugid):
+    """ Helper function to build a url """
     return "https://cdn.f5.com/product/bugtracker/ID{}.html".format(bugid)
 
 '''
@@ -544,7 +515,18 @@ except Exception:
 '''
 
 def queryandcleanurl(url):
+    """
 
+    Parameters
+    ---------
+
+    Returns
+    -------
+
+    Raises
+    ------
+
+    """
     try:
 
         with urllib.request.urlopen(url) as fp:
@@ -552,14 +534,14 @@ def queryandcleanurl(url):
             soup = BeautifulSoup(buffer, 'lxml')
 
             # Remove unwanted garbage
-            deletetag(soup, 'head')
-            deletetag(soup, 'ul', {"class": "bread-crumbs"})
-            deletetag(soup, 'iframe', {"src": "https://www.googletagmanager.com/ns.html?id=GTM-PPZPQ6" })
-            deletetag(soup, 'script', {"type": "text/javascript"})
-            deletetag(soup, 'div', {"class": "header"})
-            deletetag(soup, 'footer' )
-            deletedumboutliertag(soup, 'h4', "Guides & references")
-            deletetag(soup, 'a', {"href": "https://my.f5.com/manage/s/article/K10134038"} )
+            _deletetag(soup, 'head')
+            _deletetag(soup, 'ul', {"class": "bread-crumbs"})
+            _deletetag(soup, 'iframe', {"src": "https://www.googletagmanager.com/ns.html?id=GTM-PPZPQ6" })
+            _deletetag(soup, 'script', {"type": "text/javascript"})
+            _deletetag(soup, 'div', {"class": "header"})
+            _deletetag(soup, 'footer' )
+            _deletedumboutliertag(soup, 'h4', "Guides & references")
+            _deletetag(soup, 'a', {"href": "https://my.f5.com/manage/s/article/K10134038"} )
 
     except HTTPError as e:
         # Need to catch and handle 404s and so on...
@@ -570,12 +552,14 @@ def queryandcleanurl(url):
 
     return soup
 
-def deletetag(soup, tag:str, attrs:dict=None):
+def _deletetag(soup, tag:str, attrs:dict=None):
+    """Helper function to delete a tag in BS4 soup """
     removals = soup.find_all(tag, attrs)
     for match in removals:
         match.decompose()
 
-def deletedumboutliertag(soup, tag:str, crap:str):
+def _deletedumboutliertag(soup, tag:str, crap:str):
+    """Helper function to delete a PITA tag in BS4 soup """
     removals = soup.find_all(tag, text = re.compile(crap) )
     for match in removals:
         match.decompose()
@@ -588,7 +572,6 @@ if __name__ == "__main__":
     rawdir = homedir + "\\raw"
     csvdir = homedir + "\\csv"
     reportdir = homedir + "\\report"
-    #batch()
     #createdetailedreport()
     main()
 
