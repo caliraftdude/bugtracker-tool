@@ -23,6 +23,8 @@ reportdir = str()
 # Put this in an easy to find location for modification if desired
 report_header = r'''<!DOCTYPE html><html><head><style>table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  word-wrap:break-word;}th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  white-space: nowrap;}td {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;}tr:nth-child(even) {  background-color: #dddddd;}h1 {  border-bottom: 5px solid red;}</style></head><body><h1>Bug List</h1>'''
 report_footer = r'''</body></html>'''
+empty_report_header = r'''<html lang="en"><body><main><div class="bug-template"><div class="container"><div class="row"><div class="col-md-12"></div></div><div class="row"><div class="col-md-12 middlecontent"><div class="row"><div class="col-sm-12 col-md-12">'''
+empty_report_footer = r'''<p class="last-modified"><span class="standard-text standard-field">   </span></p></div></div></div></div></main></body></html>'''
 
 class GeneralFailure(Exception):
     pass
@@ -77,7 +79,7 @@ def main():
             raise GeneralFailure("Error trying to process the txt files into csv files or combining them into an ALL.csv")
 
         # Create the html report
-
+        createDetailedReport()
 
     except GeneralFailure as e:
         print(e.args)
@@ -328,7 +330,7 @@ def combineCSVFiles():
     return True
 
 
-def createdetailedreport():
+def createDetailedReport():
     """
 
     Parameters
@@ -359,20 +361,21 @@ def createdetailedreport():
                 if index == 0:
                     # Build header for bug list
                     report += "<table>"
-                    report += buildrow(row, True)
+                    report += _buildrow(row, True)
 
                     # Skip processing detail page for header
                     continue
-                if index > 77:   # This is just for testing...
-                    pass
-                if index > 125:  # this explodes at 78.. which is odd, I thought there would be way more room for this..
-                    break
                     
                 # Build table tow
-                report += buildrow(row)
+                report += _buildrow(row)
 
                 url = _buildurl(row[2])
-                page_list.append( queryandcleanurl(url) )
+                if False == (soup := queryAndCleanURL(url) ):
+                    # Unable to get the detailed HTML, so insert something generic and move on
+                    page_list.append( _buildEmptyDetailedReport(row[2]) )
+                else:
+                    # Did get the processed 
+                    page_list.append( soup )
 
             # Close the table, and start next section
             report += "</table>"
@@ -397,19 +400,8 @@ def createdetailedreport():
         print('Unhandled exception: %s' % e.strerror)
 
 
-def buildrow(data:list, isheader:bool=False):
-    """
-
-    Parameters
-    ---------
-
-    Returns
-    -------
-
-    Raises
-    ------
-
-    """
+def _buildrow(data:list, isheader:bool=False):
+    """ Helper function to make it easier to loop through and build rows of data for tables """
     buffer = "<tr>"
     for item in data:
         if isheader:
@@ -424,133 +416,70 @@ def _buildurl(bugid):
     """ Helper function to build a url """
     return "https://cdn.f5.com/product/bugtracker/ID{}.html".format(bugid)
 
-'''
-# Dictionary to translate a status code to an error message
-status_code_to_msg = {400:"400 Bad request.  The url is wrong or malformed\n",
-                      401:"401 Unauthorized.  The client is not authorized for this action or auth token is expired\n",
-                      404:"404 Not Found.  The server was unable to find the requested resource\n",
-                      415:"415 Unsupported media type.  The request data format is not supported by the server\n",
-                      422:"422 Unprocessable Entity.  The request data was properly formatted but contained invalid or missing data\n",
-                      500:"500 Internal Server Error.  The server threw an error while processing the request\n",
-}
-# Handle 4xx and 5xx errors here.  Common 4xx and 5xx REST errors here
-if not (error_message := status_code_to_msg.get(response.status_code) ):
-    error_message = f"{response.status_code}.  Uncommon REST/HTTP error"
 
-
-
-import urllib.error
-try:
-    post = urllib.request.urlopen(request)
-    print(post.__dict__)
-except urllib.error.HTTPError as e:
-    print(e.__dict__)
-except urllib.error.URLError as e:
-    print(e.__dict__)
-
-
-except urllib.error.URLError as e: ResponseData = e.read().decode("utf8", 'ignore')
-
-https://proxiesapi.com/articles/handling-url-errors-gracefully-in-python-urllib
-
-# - Generic except tree
-import urllib.request
-import urllib.error
-
-try:
-    response = urllib.request.urlopen('http://httpbin.org/status/400')
-except urllib.error.HTTPError as err:
-    if err.code == 400:
-        print('Bad request!')
-    if err.code == 401:
-        print('Unauthorized!')
-    if err.code == 404:
-        print(f'A HTTPError was thrown: {err.code} {err.reason}')
-    if err.code == 500:
-        print('Internal server error!')    
-    else:
-        print(f'An HTTP error occurred: {err}')
-
-
-To fix HTTP errors in Python, the following steps can be taken:
-    Check the network connection and ensure it is stable and working.
-    Check the URL being accessed and make sure it is correct and properly formatted.
-    Check the request parameters and body to ensure they are valid and correct.
-    Check whether the request requires authentication credentials and make sure they are included in the request and are correct.
-    If the request and URL are correct, check the HTTP status code and reason returned in the error message. This can give more information about the error.
-    Try adding error handling code for the specific error. For example, the request can be attempted again or missing parameters can be added to the request.
-
-
-import urllib.request
-import urllib.error
-
-max_attempts = 3  # - for something like a timeout?
-for retry in range(max_attempts):
-    try: 
-        response = urllib.request.urlopen("http://flaky.site")
-        break
-    except urllib.error.URLError:
-        if retry < max_attempts-1:
-            continue
-        else:
-            print("Site appears to be down")
-            break
-
-
-
-request = urllib2.Request('http://www.example.com', postBackData, { 'User-Agent' : 'My User Agent' })
-
-try: 
-    response = urllib2.urlopen(request)
-except urllib2.HTTPError, e:
-    checksLogger.error('HTTPError = ' + str(e.code))
-except urllib2.URLError, e:
-    checksLogger.error('URLError = ' + str(e.reason))
-except httplib.HTTPException, e:
-    checksLogger.error('HTTPException')
-except Exception:
-    import traceback
-    checksLogger.error('generic exception: ' + traceback.format_exc())
-
-'''
-
-def queryandcleanurl(url):
+def queryAndCleanURL(url):
     """
+    queryAndCleanURL takes a url and then pulls the resource down.  Once it has the html, it 
+    processes it by removing unwanted tags and content and if successful returns the 'soup' obj
+    to the caller.  The url request is bracketed in a loop that will make 3 attempts - if there
+    is a URLError, it will retry accordingly and if it finally fails out, catch the exception and
+    return false.  A break helps the loop drop out on a first (or subsequent) success and the 
+    soup is thusly returned.
 
     Parameters
     ---------
+    url : string        the url to query
 
     Returns
     -------
+    soup object on success
+    False on failure
 
     Raises
     ------
-
+    None
     """
-    try:
+    max_attempts = 3
+    for retry in range(max_attempts):
+        try:
+            with urllib.request.urlopen(url) as fp:
+                buffer = fp.read().decode("utf8")
+                soup = BeautifulSoup(buffer, 'lxml')
 
-        with urllib.request.urlopen(url) as fp:
-            buffer = fp.read().decode("utf8")
-            soup = BeautifulSoup(buffer, 'lxml')
+                # Remove unwanted garbage
+                _deletetag(soup, 'head')
+                _deletetag(soup, 'ul', {"class": "bread-crumbs"})
+                _deletetag(soup, 'iframe', {"src": "https://www.googletagmanager.com/ns.html?id=GTM-PPZPQ6" })
+                _deletetag(soup, 'script', {"type": "text/javascript"})
+                _deletetag(soup, 'div', {"class": "header"})
+                _deletetag(soup, 'footer' )
+                _deletedumboutliertag(soup, 'h4', "Guides & references")
+                _deletetag(soup, 'a', {"href": "https://my.f5.com/manage/s/article/K10134038"} )
 
-            # Remove unwanted garbage
-            _deletetag(soup, 'head')
-            _deletetag(soup, 'ul', {"class": "bread-crumbs"})
-            _deletetag(soup, 'iframe', {"src": "https://www.googletagmanager.com/ns.html?id=GTM-PPZPQ6" })
-            _deletetag(soup, 'script', {"type": "text/javascript"})
-            _deletetag(soup, 'div', {"class": "header"})
-            _deletetag(soup, 'footer' )
-            _deletedumboutliertag(soup, 'h4', "Guides & references")
-            _deletetag(soup, 'a', {"href": "https://my.f5.com/manage/s/article/K10134038"} )
+            break
 
-    except HTTPError as e:
-        # Need to catch and handle 404s and so on...
-        print('Error code: ', e.code)
-    except URLError as e:
-        # do something
-        print('Reason: ', e.reason)
+        except HTTPError as err:
+            if err.code == 400:
+                print(f'{err.code} Bad request reaching {url}')
+            if err.code == 401:
+                print(f'{err.code} Unauthorized while attempting {url}')
+            if err.code == 404:
+                print(f'{err.code} File or resource not found while trying {url}' )   
+            if err.code == 500:
+                print(f'{err.code} Internal server error attempting {url}')    
+            else:
+                print(f'A HTTPError was thrown: {err.code} {err.reason}')
+            return False
+
+        except URLError as err:
+            if retry < (max_attempts-1):
+                continue
+            else:
+                print(f'Unable to reach {url} after 3 attempts: {str(err.reason)}' )
+            return False
 
     return soup
+
 
 def _deletetag(soup, tag:str, attrs:dict=None):
     """Helper function to delete a tag in BS4 soup """
@@ -564,7 +493,14 @@ def _deletedumboutliertag(soup, tag:str, crap:str):
     for match in removals:
         match.decompose()
 
+def _buildEmptyDetailedReport(id:str):
+    """ Helper function to build a generic detailed entry if we cannot get the detailed page """
+    buffer = empty_report_header
+    buffer += f'<h2 class="bug-title">Bug ID {id}: Unable to retrieve detailed bug information</h2>'
+    buffer += empty_report_footer
 
+    soup = BeautifulSoup(buffer, 'lxml')
+    return soup
 
 if __name__ == "__main__":
     homedir = getcwd()
@@ -572,7 +508,7 @@ if __name__ == "__main__":
     rawdir = homedir + "\\raw"
     csvdir = homedir + "\\csv"
     reportdir = homedir + "\\report"
-    #createdetailedreport()
+
     main()
 
 
