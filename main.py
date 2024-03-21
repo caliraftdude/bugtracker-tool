@@ -32,16 +32,6 @@ class GeneralFailure(Exception):
 class NotADirectory(Exception):
     pass
 
-class UnfixableException(Exception):
-    """
-    An issue that cannot be resolved or worked around, so the program will exit.
-    """
-    def __init__(self, message, errors):
-        super().__init__(message)
-        self.errors = errors
-
-#raise InvalidURL("The url is invalid", url)
-
 
 def main():
     """
@@ -362,7 +352,7 @@ def createDetailedReport():
     Raises
     ------
     None
-    
+
     """
     try:
         # Get the list of files in the directory
