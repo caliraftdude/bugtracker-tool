@@ -397,7 +397,7 @@ def createDetailedReport():
     except IOError as e:
         print('Operation failed: %s' % e.strerror)
     except Exception as e:
-        print('Unhandled exception: %s' % e.strerror)
+        print('Unhandled exception: %s' % e)
 
 
 def _buildrow(data:list, isheader:bool=False):
