@@ -343,16 +343,26 @@ def combineCSVFiles():
 
 def createDetailedReport():
     """
+    createDetailedReport takes the ALL.csv file located in the csvdir, inhales it and then builds an html report out of it.
+    The 'header' and 'footer' of the report are static elements and the csv file is iterated through and inserted into 
+    table tags to create a table at the beginning of the report of all the bugs.  Afterwards, the function pulls each 
+    bug id, queries the web resource for that bug, deletes the nonsense out of the html file and then interts it into
+    the report.
+
+    The result is a table of all the bugs, followed by a list of the detailed information on each bug.
 
     Parameters
     ---------
+    None
 
     Returns
     -------
+    None
 
     Raises
     ------
-
+    None
+    
     """
     try:
         # Get the list of files in the directory
