@@ -291,7 +291,8 @@ def _writecsvheader(csvfp):
 def combineCSVFiles():
     """
     combineCSVFiles takes the csvdir, and writes the first file to a 'combined file'.  It then takes the remaining
-    csv file, strips off the header (as we only need one) and the appends each of them.
+    csv file, strips off the header (as we only need one) and the appends each of them.  This is all writted to 
+    a combined variable that is then sorted and then written out to a file.
     Parameters
     ---------
     None
@@ -311,21 +312,31 @@ def combineCSVFiles():
 
     # Output filename       
     filename = csvdir + "\\ALL.csv"
+    buffer = list()
 
-    with open(filename, 'w') as dest:
+    with open(filename, 'w', newline='') as dest:
+        writer = csv.writer(dest, delimiter=',',quotechar='"', quoting=csv.QUOTE_ALL)
+
         # enumerate the list of files and keep an index
         for index, file in enumerate(files):
             with open(file) as source:
                 if index == 0:
                     # For the first file, copy the entire thing in
-                    dest.write(source.read())
+                    buffer = list(csv.reader(source, delimiter=","))
                 else:
                     # For the remaining files, skip the header (first line) and then copy the rest in.
-                    for ln, line in enumerate(source):
+                    for ln, line in enumerate(csv.reader(source, delimiter=",")):
                         if ln == 0:
                             continue
                         else:
-                            dest.write(line)
+                            buffer.append(line)
+
+        # Sort the bugs accordingly and reinsert the header
+        sorted_buffer = sorted(buffer[1:], key=lambda x: (x[0], x[1]))
+        sorted_buffer.insert(0,buffer[0])
+
+        # write out the file
+        writer.writerows(sorted_buffer)
 
     return True
 
