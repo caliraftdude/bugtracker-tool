@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import sys
 from os import scandir, getcwd, path
-from os.path import isdir, splitext, split
+from os.path import isdir, splitext, split, normpath, basename
 import ntpath
 import re
 import csv
@@ -19,6 +19,7 @@ outdir = str()
 rawdir = str()
 csvdir = str()
 reportdir = str()
+processlevel = int()
 
 # Put this in an easy to find location for modification if desired
 report_header = r'''<!DOCTYPE html><html><head><style>table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  word-wrap:break-word;}th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  white-space: nowrap;}td {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;}tr:nth-child(even) {  background-color: #dddddd;}h1 {  border-bottom: 5px solid red;}</style></head><body><h1>Bug List</h1>'''
@@ -52,24 +53,30 @@ def main():
 
     """
     try:
-        # Get the list of files in the rawdir
-        if False == (files := getFileList(rawdir) ):
-            raise GeneralFailure("Error finding anything to process in the rawdir... exiting")
+        # Process raw to cleaned text
+        if 1 >= processlevel:
+            # Get the list of files in the rawdir
+            if False == (files := getFileList(rawdir)):
+                raise GeneralFailure("Error finding anything to process in the rawdir... exiting")
 
-        # Process the raw files and put the clean output into outdir
-        if False == processRawFiles(files):
-            raise GeneralFailure("Error trying to process raw files in raw dir to the out folder... exiting")
+            # Process the raw files and put the clean output into outdir
+            if False == processRawFiles(files):
+                raise GeneralFailure("Error trying to process raw files in raw dir to the out folder... exiting")
 
-        # Get the list of files in the outdir
-        if False == (files := getFileList(outdir) ):
-            raise GeneralFailure("Error finding anything to process in the outdir... exiting")
+        # Process cleaned test to csv files
+        if 2 >= processlevel:
+            # Get the list of files in the outdir
+            if False == (files := getFileList(outdir) ):
+                raise GeneralFailure("Error finding anything to process in the outdir... exiting")
 
-        # Process the cleaned text files into CSV files, output into csvdir.  Also create a combined csv file
-        if False == (processCSVFiles(files) ):
-            raise GeneralFailure("Error trying to process the txt files into csv files or combining them into an ALL.csv")
+            # Process the cleaned text files into CSV files, output into csvdir.  Also create a combined csv file
+            if False == (processCSVFiles(files) ):
+                raise GeneralFailure("Error trying to process the txt files into csv files or combining them into an ALL.csv")
 
-        # Create the html report
-        createDetailedReport()
+        # Process csv files into HTML report
+        if 3 >= processlevel:
+            # Create the html report
+            createDetailedReport()
 
     except GeneralFailure as e:
         print(e.args)
@@ -331,7 +338,7 @@ def combineCSVFiles():
     return True
 
 
-def createDetailedReport():
+def createDetailedReport(buglistfile:str="ALL.csv", reportname:str="BugScrub.html"):
     """
     createDetailedReport takes the ALL.csv file located in the csvdir, inhales it and then builds an html report out of it.
     The 'header' and 'footer' of the report are static elements and the csv file is iterated through and inserted into 
@@ -356,8 +363,8 @@ def createDetailedReport():
     """
     try:
         # Get the list of files in the directory
-        buglistfile = csvdir+"\\ALL.csv"
-        report_name = reportdir+"\\BugScrub.html"
+        buglistfile = csvdir+"\\"+buglistfile
+        report_name = reportdir+"\\"+reportname
         report = str()
 
         # Build Report
@@ -376,7 +383,11 @@ def createDetailedReport():
 
                     # Skip processing detail page for header
                     continue
-                    
+
+                # XXX ADD REGEX INCLUDE OR EXCLUDE
+                # FOR EXCLUDE, SEE IF IT IS IN THE LIST AND IF SO CONTINUE LOOP (SKIP PROCESSING BELOW)
+                # FOR INCLUDE, IF IT IS NOT IN LIST CONTINUE LOOP AND SKIP PROCESSING BELOW
+                
                 # Build table tow
                 report += _buildrow(row)
 
@@ -513,13 +524,67 @@ def _buildEmptyDetailedReport(id:str):
     soup = BeautifulSoup(buffer, 'lxml')
     return soup
 
+def _buildDirectories(home:str=getcwd() ):
+    """ Sets up default directories for processing and builds them if necessary.  Defaults to current director for home directory.
+    This is a little sloppy but it will get the job done
+    """
+    from pathlib import Path
+
+    if not Path(home).is_dir():
+        raise NotADirectoryError(f"'{home}' is not a directory - exiting...")
+
+    Path(outdir).mkdir(parents=True, exist_ok=True)
+    Path(rawdir).mkdir(parents=True, exist_ok=True)
+    Path(csvdir).mkdir(parents=True, exist_ok=True)
+    Path(reportdir).mkdir(parents=True, exist_ok=True)
+
+def _parseCommandLine():
+    import argparse
+
+    global homedir
+    global outdir
+    global rawdir
+    global csvdir
+    global reportdir
+    global processlevel
+
+    name = "Bugtracker-Tool"
+    description = f"""{name} is a utility to help quickly take copied content from Bugtrack (currently: https://my.f5.com/manage/s/bug-tracker), and
+    process the output to create a spreadsheet, coalate and produce an HTML report.  The tool does require some work to get proper outputs
+    and is not intended to do all the work for you.
+    
+    Processing starts in the rawdir directory, cleaned text files being writted to the outdir.  Then the files in outdir are parsed and convereted
+    to the csvdir, as well as all of them being concatenated into consolidated csv file.  Lastly, the csvdir is parsed for the ALL.csv file (default)
+    and the written into an html report to the reportdir."""
+    epilog = f"""Additional details on collecting the raw input are provided on the github site: https://github.com/caliraftdude/bugtracker-tool"""
+
+    parser = argparse.ArgumentParser(prog=name, description=description, epilog=epilog)
+
+    parser.add_argument('-d', '--home', default=getcwd(), help='Home default directory in which other processing directories are located.  Full paths area accepted')
+    parser.add_argument('-t', '--out', default='out', help='Directory relative to homedir that processed raw files are output to clean text.  Full paths will be stripped')
+    parser.add_argument('-r', '--raw', default='raw', help='Directory relative to homedir that unprocessed files exist.  Full paths will be stripped.')
+    parser.add_argument('-c', '--csv', default='csv', help='Directory relative to homedir that csv files are written to.  Full paths will be stripped')
+    parser.add_argument('-o', '--report', default='report', help='Directory relative to homedir that output report files are output to.  Full paths will be stripped')
+    parser.add_argument('-p', '--process', default=1, type=int, choices=[1,2,3], help='Process level.  Raw->Out->CSV->Report: 1->2->3:  Indicates where processing starts from.')
+
+    testargs="-p 1 -t crap1 -r crap2 -c crap3 -o crap4 -d 'c:\\somedir'"
+    args = parser.parse_args()
+
+    # Set the default directories
+    homedir = args.home
+    outdir = homedir + "\\" + basename(normpath(args.out))
+    rawdir = homedir + "\\" + basename(normpath(args.raw))
+    csvdir = homedir + "\\" + basename(normpath(args.csv))
+    reportdir = homedir + "\\" + basename(normpath(args.report))
+    processlevel = args.process
+    
+    # Ensure the directory structure is built
+    _buildDirectories()
+
+
 if __name__ == "__main__":
-    homedir = getcwd()
-    outdir = homedir + "\\out"
-    rawdir = homedir + "\\raw"
-    csvdir = homedir + "\\csv"
-    reportdir = homedir + "\\report"
-
+    # Process command line arguments and set global defaults
+    _parseCommandLine()
+    
+    # Main entry point
     main()
-
-

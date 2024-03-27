@@ -10,7 +10,8 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": "LTM-raw.txt LTM"
+            //"args": "-p 1 -t shit -r fuck -c crap -o damn -d 'c:\\somedir'"
+            "args":"-p 3"
         }
     ]
 }
