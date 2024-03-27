@@ -5,6 +5,7 @@ from os.path import isdir, splitext, split, normpath, basename
 import ntpath
 import re
 import csv
+import shlex
 try:
     import urllib.request, urllib.parse
     from urllib.error import URLError, HTTPError
@@ -20,6 +21,8 @@ rawdir = str()
 csvdir = str()
 reportdir = str()
 processlevel = int()
+regex_exclude = list()
+regex_include = list()
 
 # Put this in an easy to find location for modification if desired
 report_header = r'''<!DOCTYPE html><html><head><style>table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  word-wrap:break-word;}th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  white-space: nowrap;}td {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;}tr:nth-child(even) {  background-color: #dddddd;}h1 {  border-bottom: 5px solid red;}</style></head><body><h1>Bug List</h1>'''
@@ -384,10 +387,16 @@ def createDetailedReport(buglistfile:str="ALL.csv", reportname:str="BugScrub.htm
                     # Skip processing detail page for header
                     continue
 
-                # XXX ADD REGEX INCLUDE OR EXCLUDE
                 # FOR EXCLUDE, SEE IF IT IS IN THE LIST AND IF SO CONTINUE LOOP (SKIP PROCESSING BELOW)
+                if _testRegex(regex_exclude, row):
+                    continue
+
                 # FOR INCLUDE, IF IT IS NOT IN LIST CONTINUE LOOP AND SKIP PROCESSING BELOW
-                
+                # If the list is empty, so will the report be - so for an empty list, skip
+                if (len(regex_include) > 0):
+                    if not _testRegex(regex_include, row):
+                        continue
+
                 # Build table tow
                 report += _buildrow(row)
 
@@ -421,6 +430,14 @@ def createDetailedReport(buglistfile:str="ALL.csv", reportname:str="BugScrub.htm
     except Exception as e:
         print('Unhandled exception: %s' % e)
 
+def _testRegex(tests:list, iut:str):
+    for test in tests:
+        item_under_test = ' '.join(iut)
+        if re.search(test, item_under_test):
+            return True
+
+    return False
+                
 
 def _buildrow(data:list, isheader:bool=False):
     """ Helper function to make it easier to loop through and build rows of data for tables """
@@ -547,6 +564,8 @@ def _parseCommandLine():
     global csvdir
     global reportdir
     global processlevel
+    global regex_exclude
+    global regex_include
 
     name = "Bugtracker-Tool"
     description = f"""{name} is a utility to help quickly take copied content from Bugtrack (currently: https://my.f5.com/manage/s/bug-tracker), and
@@ -565,22 +584,36 @@ def _parseCommandLine():
     parser.add_argument('-r', '--raw', default='raw', help='Directory relative to homedir that unprocessed files exist.  Full paths will be stripped.')
     parser.add_argument('-c', '--csv', default='csv', help='Directory relative to homedir that csv files are written to.  Full paths will be stripped')
     parser.add_argument('-o', '--report', default='report', help='Directory relative to homedir that output report files are output to.  Full paths will be stripped')
-    parser.add_argument('-p', '--process', default=1, type=int, choices=[1,2,3], help='Process level.  Raw->Out->CSV->Report: 1->2->3:  Indicates where processing starts from.')
+    parser.add_argument('-p', '--process', default=1, type=int, choices=[1,2,3], help='Process level.  Raw->Out, Out->CSV, CSV->Report: 1->2->3:  Indicates where processing starts from.')
+    parser.add_argument('-x', '--keyexclude', type=str, help='Regex signatures to exclude line items from.  Only during report phase, against title, and takes precedence over keyinclude list')
+    parser.add_argument('-i', '--keyinclude', type=str, help='Regex signatures that must pass to be added to report.  Only during report phase, against title, and keyexclude takes precedence')
 
     testargs="-p 1 -t crap1 -r crap2 -c crap3 -o crap4 -d 'c:\\somedir'"
     args = parser.parse_args()
 
     # Set the default directories
     homedir = args.home
+
     outdir = homedir + "\\" + basename(normpath(args.out))
     rawdir = homedir + "\\" + basename(normpath(args.raw))
     csvdir = homedir + "\\" + basename(normpath(args.csv))
     reportdir = homedir + "\\" + basename(normpath(args.report))
     processlevel = args.process
+
+    # Store the list of regexes in the appropriate globals
+    regex_exclude = shlex.split(args.keyexclude)
+    regex_include = shlex.split(args.keyinclude)
     
     # Ensure the directory structure is built
     _buildDirectories()
 
+def _compileRegexList(regex:list):
+    ret = list()
+
+    for regex in [ i for i in shlex.split(txt)]:
+	    ret.append(re.compile(regex))
+
+    return ret
 
 if __name__ == "__main__":
     # Process command line arguments and set global defaults
