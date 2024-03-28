@@ -1,0 +1,152 @@
+Bug Tracker
+Bug ID 1154313: TMM crash due to rrsets structure corruption
+3-Major
+Modification Date: Mar 26, 2024
+Bug Tracker
+Bug ID 1399809: DNS Resolution for IPv6 clients is not working when dns64 is enabled with secondary in DNS Profile.
+3-Major
+Modification Date: Mar 26, 2024
+Bug Tracker
+Bug ID 1137217: DNS profile fails to set TC flag for the responses containing RRSIG algorithm 13
+3-Major
+Modification Date: Mar 22, 2024
+Bug Tracker
+Bug ID 1517469: Database monitor daemon process memory and CPU consumption increases over time
+3-Major
+Modification Date: Mar 21, 2024
+Bug Tracker
+Bug ID 1096165: Tmm cored for accessing the pool after the gtm_add command is run
+3-Major
+Modification Date: Mar 15, 2024
+Bug Tracker
+Bug ID 977681: Incorrect error message when changing password using passwd
+4-Minor
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 760117: Duplicate error messages in log when updating a zone through ZoneRunner GUI
+4-Minor
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 464708: DNS logging does not support Splunk format log
+4-Minor
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1328857: GUI error when accessing hyperlink for associated gtm link object on a virtual server
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1354977: TMM validating resolver performance dramatically decreases
+2-Critical
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 264701: The zrd exits on error from bind about .jnl file error
+4-Minor | K10066
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1378069: DNS profile RPS spike every time when there is change in configuration of DNS profile
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1044873: Deleted GTM link is not removed from virtual server object and causes load failure.
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1497861: DNS query fails with low EDNS0 buffer size
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 862949: ZoneRunner GUI is unable to display CAA records
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1464201: GTM rule created with wildcard * from GUI results in configuration load error
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1281433: Missing GTM probes on GTM server when an external monitor is attached to an additional pool
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 936417: DNS/GTM daemon big3d does not accept ECDHE or DHE ciphers
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1553753: Zone data unavailable with AXFR zone transfers
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1274385: BIGIP-DNS GUI delivery summary stats shows incorrect count for "Disabled" GTM listeners
+5-Cosmetic
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 918693: Wide IP alias validation error during sync or config load
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1051125: GTM marks virtual servers offline even when LTM virtual servers are available.
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1318625: The gtm_add sync configuration is in the unintended direction with large GTM configuration
+2-Critical
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1388621: Database monitor with no password marks pool member down
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1379649: GTM iRule not verifying WideIP type while getting pool from TCL command
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1267845: ISC's internal_current function asserted because ifa_name was NULL
+2-Critical
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1269601: Unable to delete monitor while updating DNS virtual server monitor through transaction
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1162221: Probing decision will skip local GTM upon reboot if net interface is not brought up soon enough
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1081473: GTM/DNS installations may observe the mcpd process crashing
+2-Critical
+Modification Date: Mar 05, 2024
+Bug Tracker
+Bug ID 912517: Database monitor marks pool member down if 'send' is configured but no 'receive' strings are configured
+3-Major
+Modification Date: Feb 07, 2024
+Bug Tracker
+Bug ID 1304289: Pool member monitored by both GTM and LTM monitors may be erroneously marked Down
+4-Minor
+Modification Date: Jan 16, 2024
+Bug Tracker
+Bug ID 1302825: Allow configuration of the number of times the CNAME chase is performed
+3-Major
+Modification Date: Jan 04, 2024
+Bug Tracker
+Bug ID 1182353: DNS cache consumes more memory because of the accumulated mesh_states
+3-Major
+Modification Date: Dec 19, 2023
+Bug Tracker
+Bug ID 1103477: Refreshing pool member statistics results in error while processing requests
+3-Major
+Modification Date: Dec 19, 2023
+Bug Tracker
+Bug ID 1186789: DNSSEC keys stored on an internal FIPS card do not work after upgrading to versions >= 16.x
+4-Minor
+Modification Date: Dec 19, 2023
+Bug Tracker
+Bug ID 1132801: Database monitor marks pool member down if 'send' is configured but no 'receive' strings are configured
+1-Blocking
+Modification Date: Dec 07, 2023
+Bug Tracker
+Bug ID 1213305: Improper query string handling on undisclosed pages
+3-Major | K000132726
+Modification Date: Dec 07, 2023
+Bug Tracker
+Bug ID 1108237: Incorrect 'No reply from big3d: timed out' result for certain destinations monitored by GTM.
+3-Major
+Modification Date: Dec 07, 2023

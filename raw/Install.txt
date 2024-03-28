@@ -1,0 +1,152 @@
+Bug Tracker
+Bug ID 1353021: Memory Leak in TMM due to SAML SSO after upgrading
+2-Critical
+Modification Date: Mar 26, 2024
+Bug Tracker
+Bug ID 1354673: Failure to read assertion after upgrade
+3-Major
+Modification Date: Mar 26, 2024
+Bug Tracker
+Bug ID 1353957: The message "Error getting auth token from login provider" is displayed in the GUI
+3-Major | K000137505
+Modification Date: Mar 26, 2024
+Bug Tracker
+Bug ID 1347949: High CPU for bd process under specific conditions
+3-Major
+Modification Date: Mar 26, 2024
+Bug Tracker
+Bug ID 1004953: HTTP does not fall back to HTTP/1.1
+4-Minor
+Modification Date: Mar 22, 2024
+Bug Tracker
+Bug ID 1398401: Config fails to load when upgrading from 15.1.x to 15.1.10.2
+2-Critical
+Modification Date: Mar 19, 2024
+Bug Tracker
+Bug ID 955897: Configuration may fail to load with named virtual-address for 0.0.0.0 in a non-zero route domain
+3-Major
+Modification Date: Mar 19, 2024
+Bug Tracker
+Bug ID 1505789: VPN connection fails with Edge client 7.2.4.6 with error "Network is vulnerable"
+1-Blocking | K000138683
+Modification Date: Mar 18, 2024
+Bug Tracker
+Bug ID 1006449: The default size of the subagent object cache possibly leading to slow snmp response time and high mcpd CPU use
+2-Critical
+Modification Date: Mar 15, 2024
+Bug Tracker
+Bug ID 1077789: System might become unresponsive after upgrading.
+2-Critical
+Modification Date: Mar 15, 2024
+Bug Tracker
+Bug ID 1312041: Connection RST with reason "STREAM max match size exceeded" after upgrading to v16.1.x
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1429149: VELOS tenant, TMM remains not ready and fails to fully come-up on secondary slots
+1-Blocking
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 762097: No swap memory available after upgrading to v14.1.0 and above
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1282029: Logging suspicious vector feature is not supported for tcp-flags-uncommon vector on upgrade to BIG-IP 17.1.0
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 910645: Upgrade error 'Parsing default XML files. Failed to parse xml file'
+4-Minor
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1348061: [Dual Stack MGMT] - Upgrade of BIG-IP in HA with Dual stacked mgmt IP causes deletion of peers failover IPv4 unicast address
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1013209: BIG-IP components relying on ca-bundle.crt may stop working after upgrade
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 717174: WebUI shows error: Error getting auth token from login provider
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 945189: HTTPS monitor fails due to missing ECDHE-RSA-AES256-CBC-SHA
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 867549: LCD touch panel reports "Firmware update in progress" indefinitely
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 887265: BIG-IP systems may fail to come online after upgrade with ASM and VLAN-failsafe configuration
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1002969: Csyncd can consume excessive CPU time
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1305117: SSL profile "no-dtlsv1.2" option is left disabled while upgrading from v14.x or v15.x to 17.1.0
+2-Critical
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 987949: Error messages erroneously generated during boot up
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 966729: LDAP system authentication does not support multiple servers
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1328217: SSL Orchestrator may fail to finish upgrading from SSL Orchestratorv9.1 or SSL Orchestratorv9.2 if tcp profile exists with name that starts with sslo_ and ends with -tcp-lan
+4-Minor
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 997793: Error log: Failed to reset strict operations; disconnecting from mcpd
+2-Critical | K34172543
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 940733: Downgrading a FIPS-enabled BIG-IP system or running big3d_install results in a system halt
+2-Critical | K29290121
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1496269: VCMP guest on version 16.1.4 or above might experience constant TMM crashes.
+1-Blocking
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1282105: Assertion response attributes parsing issue after upgrade to BIG-IP 17.1.0
+2-Critical | K000134865
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1289365: The Proxy Select agent fails to select the pool or upstream proxy in explicit proxy mode
+3-Major
+Modification Date: Feb 14, 2024
+Bug Tracker
+Bug ID 1126329: SSL Orchestrator with explicit proxy mode with proxy chaining enabled fails to send the CONNECT
+3-Major
+Modification Date: Feb 07, 2024
+Bug Tracker
+Bug ID 1281381: BD continuously restarting after upgrade to 17.1.0.1
+3-Major
+Modification Date: Jan 09, 2024
+Bug Tracker
+Bug ID 1020129: Turboflex page in GUI reports 'profile.Features is undefined' error
+3-Major
+Modification Date: Dec 13, 2023
+Bug Tracker
+Bug ID 1041985: TMM memory utilization increases after upgrade
+3-Major
+Modification Date: Dec 07, 2023
+Bug Tracker
+Bug ID 1076825: "Live Update" configuration and list of update files reverts to default after upgrade to v16.1.x and v17.1.x from earlier releases.
+4-Minor
+Modification Date: Dec 07, 2023
+Bug Tracker
+Bug ID 1127725: Performance drop with the AES_CCM 128 cipher
+2-Critical
+Modification Date: Dec 07, 2023
+Bug Tracker
+Bug ID 1026273: HA failover connectivity using the cluster management address does not work on VIPRION platforms
+3-Major
+Modification Date: Jul 11, 2023

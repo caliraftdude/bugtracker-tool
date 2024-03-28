@@ -1,0 +1,100 @@
+Bug Tracker
+Bug ID 1100197: GTM sends wrong commit_id originator for iqsyncer to do gtm group sync
+3-Major
+Modification Date: Mar 22, 2024
+Bug Tracker
+Bug ID 1083405: "Error connecting to named socket" from zrd
+3-Major
+Modification Date: Mar 22, 2024
+Bug Tracker
+Bug ID 1517469: Database monitor daemon process memory and CPU consumption increases over time
+3-Major
+Modification Date: Mar 21, 2024
+Bug Tracker
+Bug ID 962477: REST calls that modify GTM objects as a user other than admin may take longer than expected
+3-Major
+Modification Date: Mar 15, 2024
+Bug Tracker
+Bug ID 977681: Incorrect error message when changing password using passwd
+4-Minor
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 464708: DNS logging does not support Splunk format log
+4-Minor
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 959613: Double-monitoring a generic-host virtual server might show blank 'Reason'
+4-Minor
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 264701: The zrd exits on error from bind about .jnl file error
+4-Minor | K10066
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 899253: [GUI] GTM wideip-pool-manage in GUI fails when tens of thousands of pools exist
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1496205: Static CNAME pool members may get deleted when corresponding WideIPs are deleted
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 862949: ZoneRunner GUI is unable to display CAA records
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1464201: GTM rule created with wildcard * from GUI results in configuration load error
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 936417: DNS/GTM daemon big3d does not accept ECDHE or DHE ciphers
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 918693: Wide IP alias validation error during sync or config load
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1025089: Pool members marked DOWN by database monitor under heavy load and/or unstable connections
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1091785: DBDaemon restarts unexpectedly and/or fails to restart under heavy load
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1388621: Database monitor with no password marks pool member down
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1162221: Probing decision will skip local GTM upon reboot if net interface is not brought up soon enough
+3-Major
+Modification Date: Mar 14, 2024
+Bug Tracker
+Bug ID 1298029: DB_monitor may end the wrong processes
+2-Critical
+Modification Date: Feb 16, 2024
+Bug Tracker
+Bug ID 912517: Database monitor marks pool member down if 'send' is configured but no 'receive' strings are configured
+3-Major
+Modification Date: Feb 07, 2024
+Bug Tracker
+Bug ID 1304289: Pool member monitored by both GTM and LTM monitors may be erroneously marked Down
+4-Minor
+Modification Date: Jan 16, 2024
+Bug Tracker
+Bug ID 1182353: DNS cache consumes more memory because of the accumulated mesh_states
+3-Major
+Modification Date: Dec 19, 2023
+Bug Tracker
+Bug ID 1186789: DNSSEC keys stored on an internal FIPS card do not work after upgrading to versions >= 16.x
+4-Minor
+Modification Date: Dec 19, 2023
+Bug Tracker
+Bug ID 1132801: Database monitor marks pool member down if 'send' is configured but no 'receive' strings are configured
+1-Blocking
+Modification Date: Dec 07, 2023
+Bug Tracker
+Bug ID 1108237: Incorrect 'No reply from big3d: timed out' result for certain destinations monitored by GTM.
+3-Major
+Modification Date: Dec 07, 2023
