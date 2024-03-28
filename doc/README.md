@@ -16,7 +16,7 @@ These are for the more patient or frustrated, if the terse instructions didn't w
 **Clone the repository into a local directory**
 Clone the repository into a local directory.  You will want to ensure this has access to the internet when you run the tool as it will call the Bug Tracker resource for each individual issue to get the detailed reports and compile that into the html report at the end.
 
-![Directory Structure](./img/image1.png){:style="left: left;margin-left: 7px;margin-top: 7px;"}  
+![Directory Structure](./img/image1.png)
 The tool will build a a data structure to store the various intermediate files as it runs.  By default, it will create the raw, out, csv, and report directories and use them for those purposes.  You can override these defaults on the command line or designate other directories (or even a new home) be used if desired.  This would make the most sense if the tool is running from a bin directory and you want the data files to be located in say /opt/bugscrub/ for example.
 
 It is advised to at least create the raw subdirectory so you can put the input content there when the tool is run.  Otherwise the first run wont do anything but create the directory structure.
@@ -50,10 +50,49 @@ You will need to start [here](https://my.f5.com/manage/s/bug-tracker) to collect
 
 
 **Run the tool**
+Help for the tool is listed as follows:
+```
+usage: Bugtracker-Tool [-h] [-d HOME] [-t OUT] [-r RAW] [-c CSV] [-o REPORT]
+                       [-p {1,2,3}] [-x KEYEXCLUDE] [-i KEYINCLUDE]
 
+Bugtracker-Tool is a utility to help quickly take copied content from Bugtrack
+(currently: https://my.f5.com/manage/s/bug-tracker), and process the output to
+create a spreadsheet, coalate and produce an HTML report. The tool does
+require some work to get proper outputs and is not intended to do all the work
+for you. Processing starts in the rawdir directory, cleaned text files being
+writted to the outdir. Then the files in outdir are parsed and convereted to
+the csvdir, as well as all of them being concatenated into consolidated csv
+file. Lastly, the csvdir is parsed for the ALL.csv file (default) and the
+written into an html report to the reportdir.
 
+options:
+  -h, --help            show this help message and exit
+  -d HOME, --home HOME  Home default directory in which other processing
+                        directories are located. Full paths area accepted
+  -t OUT, --out OUT     Directory relative to homedir that processed raw files
+                        are output to clean text. Full paths will be stripped
+  -r RAW, --raw RAW     Directory relative to homedir that unprocessed files
+                        exist. Full paths will be stripped.
+  -c CSV, --csv CSV     Directory relative to homedir that csv files are
+                        written to. Full paths will be stripped
+  -o REPORT, --report REPORT
+                        Directory relative to homedir that output report files
+                        are output to. Full paths will be stripped
+  -p {1,2,3}, --process {1,2,3}
+                        Process level. Raw->Out, Out->CSV, CSV->Report:
+                        1->2->3: Indicates where processing starts from.
+  -x KEYEXCLUDE, --keyexclude KEYEXCLUDE
+                        Regex signatures to exclude line items from. Only
+                        during report phase, against title, and takes
+                        precedence over keyinclude list
+  -i KEYINCLUDE, --keyinclude KEYINCLUDE
+                        Regex signatures that must pass to be added to report.
+                        Only during report phase, against title, and
+                        keyexclude takes precedence
 
-
+Additional details on collecting the raw input are provided on the github
+site: https://github.com/caliraftdude/bugtracker-tool
+```
 
 
 
