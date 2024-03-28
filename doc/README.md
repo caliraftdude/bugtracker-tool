@@ -17,6 +17,7 @@ These are for the more patient or frustrated, if the terse instructions didn't w
 Clone the repository into a local directory.  You will want to ensure this has access to the internet when you run the tool as it will call the Bug Tracker resource for each individual issue to get the detailed reports and compile that into the html report at the end.
 
 ![Directory Structure](./img/image1.png)
+
 The tool will build a a data structure to store the various intermediate files as it runs.  By default, it will create the raw, out, csv, and report directories and use them for those purposes.  You can override these defaults on the command line or designate other directories (or even a new home) be used if desired.  This would make the most sense if the tool is running from a bin directory and you want the data files to be located in say /opt/bugscrub/ for example.
 
 It is advised to at least create the raw subdirectory so you can put the input content there when the tool is run.  Otherwise the first run wont do anything but create the directory structure.
@@ -53,7 +54,7 @@ The interface to the resource, as of 2024.03.27, looks as follows:
 
 ![Bug Tracker Interface](./img/image2.png)
 
-A single questy can be run from the dialog box in the upper right that says, "Seach for a bug ID, title or text."  This is of little use to us.  Below that dialog is a dialog with selectable items, or product families.  As these are selected some additional options are provided.  It is here that you can refine the list of issues that you want to focus in on.
+A single query can be run from the dialog box in the upper left that says, "Search for a bug ID, title or text."  This is of little use to us.  Below that dialog is a dialog with selectable items, or product families.  As these are selected some additional options are provided.  It is here that you can refine the list of issues that you want to focus in on.
 
 >The tool, when processing raw files into a combined CSV (or excel) sheet will combine whatever files it has found in the raw directory.  It will take the name of each of those files and use that to designate the family for those issues in the combined CSV.  For that reason, its advisable to break up the screen grabs into families and then name them AFM.txt, TMOS.txt, and so on so that that the end results of the tool will make the most sense and have the most value.
 
@@ -106,15 +107,22 @@ Start with GTM (it has 25 issues), clear all the other product modules.  Now scr
 Begin your text selection This is a bit tricky to explain in text so look at the next two images for clarity.  You want to the entire client area without any menu or extra nonsense.  JUST the bugs.  Dont worry about graphics and other stuff in here, that will get handled in a minute.
 
 ![Top Page Selection](./img/image8.png)
+
 Copy all the way through to the bottom like so:  This is where that wheel on the mouse is going to help out.  I don't know how Mac users deal with this.. tough - mouse wheels have been around for 20 years, ask the 'genius' how to cope with it.
+
 ![Bottom Page Selection](./img/image9.png)
 
 Copy and paste this into a text editor.  The resulting paste should look about like this:
+
 ![Copied Text](./img/image10.png)
+
 Notice the red outlined area is a single issue.  If you did this correctly, the text file should be a series of these.  Occassionally you will see a K Article as well, don't worry about it - it does get handled.  Since this is all for the GTM issues, save this as GTM.txt into the raw folder.
 
 Continue to do this for the remaining items, selecting them one at a time in the Product/Module dialog.  For selections that have more than 100 items in it, like LTM, you will need to paginate and concatenate the txt file until you have all of it.  Continue until you have collected all the issues and saved the txt files into the raw directory:
+
 ![All raw files](./img/image11.png)
+
+Now we are ready to process into something we can work with.
 
 **Run the tool**
 Help for the tool is listed as follows:
