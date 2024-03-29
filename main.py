@@ -140,13 +140,23 @@ def processRawFiles(files:list):
     ------
     None
     """
+
     # Process each file
     try:
-        for file in files:
+        numberFiles = len(files)
+        pfix = "Process Raw: "
+
+        # Start off the progress bar
+        _printProgressBar(0, numberFiles, prefix = pfix, suffix = 'Complete', length = 50)
+
+        for i, file in enumerate(files):
             if file.endswith(".txt"): 
                 # only .txt files are accepted, and the name of the file should ONLY be the family name of the buglist
                 family = splitext(ntpath.basename(file))[0]
                 processRaw(file, family)
+
+                # Update progress
+                _printProgressBar(i + 1, numberFiles, prefix = pfix, suffix = 'Complete', length = 50)
             else:
                 print("non-text file found in directory... skipping.")
 
@@ -221,9 +231,18 @@ def processCSVFiles(files:list):
     None
     """
     try:
+        numberFiles = len(files)
+        pfix = "Process CSV: "
+
+        # Start off the progress bar
+        _printProgressBar(0, numberFiles, prefix = pfix, suffix = 'Complete', length = 50)
+
         # Convert each file into a csv
-        for file in files:
+        for i, file in enumerate(files):
             processCSV(file)
+
+            # Update progress
+            _printProgressBar(i + 1, numberFiles, prefix = pfix, suffix = 'Complete', length = 50)
 
         # Create a single csv file, and strip headers - promote the return value to the caller
         return combineCSVFiles()
@@ -310,8 +329,14 @@ def combineCSVFiles():
     if False == (files := getFileList(csvdir) ):
         return False
 
-    # Output filename       
-    filename = csvdir + "\\ALL.csv"
+    # Output filename
+    combined_filename = "ALL.csv"
+
+    # Remove filename if its in the list
+    files = [i for i in files if not ntpath.basename(i) in combined_filename]
+
+    # Build out full filename
+    filename = csvdir + "\\" + combined_filename
     buffer = list()
 
     with open(filename, 'w', newline='') as dest:
@@ -369,6 +394,12 @@ def createDetailedReport(buglistfile:str="ALL.csv", reportname:str="BugScrub.htm
         buglistfile = csvdir+"\\"+buglistfile
         report_name = reportdir+"\\"+reportname
         report = str()
+        numberRows = int()
+
+        # Get size of file - don't like this, but it works
+        with open(buglistfile, newline='') as fp:
+            reader = csv.reader(fp, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+            numberRows = len(list(reader))
 
         # Build Report
         with open(buglistfile, newline='') as fp:
@@ -378,7 +409,15 @@ def createDetailedReport(buglistfile:str="ALL.csv", reportname:str="BugScrub.htm
             # Build report
             report += report_header
 
-            for index, row in enumerate(reader):           
+            # Prep the progress bar, and start of progress bar
+            pfix = "Write Report:"
+            _printProgressBar(0, numberRows, prefix = pfix, suffix = 'Complete', length = 50)
+
+
+            for index, row in enumerate(reader):
+                # Update progress - tricky where to put this, but the continue shortcuts mandate here
+                _printProgressBar(index + 1, numberRows, prefix = pfix, suffix = 'Complete', length = 50)
+
                 if index == 0:
                     # Build header for bug list
                     report += "<table>"
@@ -528,7 +567,7 @@ def _deletetag(soup, tag:str, attrs:dict=None):
 
 def _deletedumboutliertag(soup, tag:str, crap:str):
     """Helper function to delete a PITA tag in BS4 soup """
-    removals = soup.find_all(tag, text = re.compile(crap) )
+    removals = soup.find_all(tag, string = re.compile(crap) )
     for match in removals:
         match.decompose()
 
@@ -601,19 +640,46 @@ def _parseCommandLine():
     processlevel = args.process
 
     # Store the list of regexes in the appropriate globals
-    regex_exclude = shlex.split(args.keyexclude)
-    regex_include = shlex.split(args.keyinclude)
-    
+    # Python 3.12 changed this to throw if the arg is None
+    regex_exclude = _splitArgs(args.keyexclude)
+    regex_include = _splitArgs(args.keyinclude)
+   
     # Ensure the directory structure is built
     _buildDirectories()
 
-def _compileRegexList(regex:list):
-    ret = list()
+def _splitArgs(args):
+    '''Helper function to safely split cmd line regex args into a proper list.  If nothing is found, returns an empty list'''
+    if args != None:
+        try:
+            return shlex.split(args)
+        except (ValueError, AttributeError) as e:
+            print(f"Error parsing regex exclude arguments: {e}")
+            
+    return list()
 
-    for regex in [ i for i in shlex.split(txt)]:
-	    ret.append(re.compile(regex))
+def _printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, length = 100, fill = '█', printEnd = "\r"):
+    """
+    Call in a loop to create terminal progress bar
+    Inspired from here: https://stackoverflow.com/questions/3173320/text-progress-bar-in-terminal-with-block-characters
+    @params:
+        iteration   - Required  : current iteration (Int)
+        total       - Required  : total iterations (Int)
+        prefix      - Optional  : prefix string (Str)
+        suffix      - Optional  : suffix string (Str)
+        decimals    - Optional  : positive number of decimals in percent complete (Int)
+        length      - Optional  : character length of bar (Int)
+        fill        - Optional  : bar fill character (Str)
+        printEnd    - Optional  : end character (e.g. "\r", "\r\n") (Str)
+    """
+    percent = ("{0:." + str(decimals) + "f}").format(100 * (iteration / float(total)))
+    filledLength = int(length * iteration // total)
+    bar = fill * filledLength + '-' * (length - filledLength)
 
-    return ret
+    print(f'\r{prefix} |{bar}| {percent}% {suffix}', end = printEnd)
+
+    # Print New Line on Complete
+    if iteration == total: 
+        print()
 
 if __name__ == "__main__":
     # Process command line arguments and set global defaults

@@ -13,10 +13,9 @@
             "console": "internalConsole",
             //"args": "-p 1 -t shit -r fuck -c crap -o damn -d 'c:\\somedir'"
             "args":[
-                "-h",
                 //"-p 3",
                 //"-x 'VIPRION|viprion'",
-                //"-i 'IPSEC|ipsec|IPsec' "
+                //"-i 'IPSEC|ipsec|IPsec' 'TMM|tmm' "
             ]
         }
     ]

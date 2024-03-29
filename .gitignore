@@ -2,6 +2,7 @@
 *.csv
 *.pdf
 *.html
+out/*.txt
 
 
 # Byte-compiled / optimized / DLL files
