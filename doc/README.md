@@ -125,7 +125,7 @@ Continue to do this for the remaining items, selecting them one at a time in the
 Now we are ready to process into something we can work with.
 
 **Run the tool**
-Help for the tool is listed as follows:
+First, the help for the tool is listed as follows:
 ```
 usage: Bugtracker-Tool [-h] [-d HOME] [-t OUT] [-r RAW] [-c CSV] [-o REPORT]
                        [-p {1,2,3}] [-x KEYEXCLUDE] [-i KEYINCLUDE]
@@ -169,6 +169,15 @@ Additional details on collecting the raw input are provided on the github
 site: https://github.com/caliraftdude/bugtracker-tool
 ```
 
+Running the tool is as simple as calling the executable.  There are progress bars as the detailed report must query the BugTracker web pages for each bug in order to ge the detailed information, the other processes are almost instant but progress is recorded only to state that they happened:
+
+![All raw files](./img/image12.png)
+
+Filtering, which was added late in the project, allows you to provide regular expressions to either reject or exclude or filter to only include for the HTML report only.  The regular expressions are ONLY applied against the title, which is not entirely conclusive.  However, even a search of the detailed page results will vary in accuracy since no distinction can be made from the comment "*This bug only occurs in VELOS*" and "*VIPRION and VELOS are unaffected*" as a regular expression isn't able to process intent or context... and adding in LLM AI to this tool would be a gross waste of time (although an interesting pet project).
+
+For that matter, its better to output the entire report and then select the things you want to isolate or focus on and then create regular expressions for them with intent.  A future release may allow for a csv file that has a list that can be used to keep long command lines under control.  However, while manual, you CAN edit the **ALL.csv** file and exclude items that are unwanted and then run the tool with the **-p 3** command which will only generate the HTML report.  Since the input to the report is the **ALL.csv** file, this acts as a more efficient means to achieve a result, rather than creating a cute script to predict all possible edge conditions and avoid them gracefully.
+
+Again - the online tool will likely be miraculously improved now that I have spent the time to make this, so its appropriate to pin a completion before it takes a life of its own.
 
 
 [logo-tight]:    ./img/logo_tight.png
