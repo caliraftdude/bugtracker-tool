@@ -3,6 +3,7 @@
 *.pdf
 *.html
 out/*.txt
+raw/*.txt
 
 
 # Byte-compiled / optimized / DLL files
